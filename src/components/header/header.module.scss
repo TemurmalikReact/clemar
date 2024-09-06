@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(60, 160, 215);
+    background-color: #49c3f2;
     height: 69px;
     padding: 0 153px;
 
@@ -25,11 +25,6 @@
 
     svg {
         width: 20px;
-
-        &.dropdown {
-            width: 14px;
-            margin: 1px 0 0 6px;
-        }
     }
 
     &_logo {
@@ -88,9 +83,6 @@
                 background: transparent;
                 border: none;
                 outline: none;
-                appearance: none;
-                text-indent: 1px;
-                text-overflow: '';
 
                 option {
                     color: #000;
@@ -107,7 +99,7 @@
 
                 font-size: 18px;
                 font-weight: 600;
-                color: rgb(60, 160, 215);
+                color: #49c3f2;
                 background: #fff;
 
                 &:hover {
@@ -137,6 +129,10 @@
         display: flex;
         align-items: center;
 
+        &__logo {
+            height: 100%;
+        }
+
         &.search_wrapper {
             flex-grow: 1;
             padding: 0 30px;
@@ -154,13 +150,9 @@
                 margin: 0 0 0 8px;
             }
 
-            svg {
-                width: 25px;
+            img {
+                width: 23px;
             }
-        }
-
-        img {
-            height: 100%;
         }
 
         &__search {
@@ -198,7 +190,7 @@
             }
     
             button {
-                background: rgb(60, 160, 215);
+                background: #49c3f2;
                 border: none;
                 outline: none;
                 border-radius: 7px;
@@ -223,7 +215,7 @@
             height: 100%;
             border: none;
             outline: none;
-            background: rgb(60, 160, 215);
+            background: #49c3f2;
             transition: .3s all;
             border-radius: 7px;
     

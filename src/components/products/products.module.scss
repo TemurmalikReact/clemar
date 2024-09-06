@@ -17,7 +17,7 @@
                 font-size: 18px;
                 font-weight: 400;
                 text-decoration: underline;
-                color: #0d485d;
+                color: #49c3f2;
             }
         }
     }
@@ -41,15 +41,28 @@
             display: flex;
             align-items: center;
             border-radius: 14px;
-            border: 1px solid rgba(175, 175, 175, 0.3);
-            padding: 15px;
+            position: relative;
+            padding: 16px;
+            border: 1px solid rgba(175, 175, 175, 0.3)
         }
 
         &__bottom {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-end;
+            gap: 16px;
+        }
+
+        &__image {
+            width: 100%;
+        }
+
+        &__icon {
+            width: 19px;
+            position: absolute;
+            top: 16px;
+            right: 16px;
         }
 
         &__title {
@@ -72,17 +85,13 @@
             width: 100%;
             outline: none;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             transition: .15s all;
 
             &:hover {
-                background: #0d485d;
+                background: #49c3f2;
                 color: #fff;
             }
         }
-    }
-
-    img {
-        width: 100%;
     }
 }

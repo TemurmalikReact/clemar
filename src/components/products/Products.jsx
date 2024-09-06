@@ -57,7 +57,7 @@ export const Products = () => {
         loop
         navigation={true}
         autoplay={{
-          "delay": 2000,
+          "delay": 2500,
           "disableOnInteraction": false
         }}
         modules={[Navigation, Autoplay]}
@@ -66,7 +66,8 @@ export const Products = () => {
           <SwiperSlide key={i + 'a'}>
             <div className={styles.swiper_card}>
               <div className={styles.swiper_card__top}>
-                <img src={slide.image} alt="" />
+                <img className={styles.swiper_card__image} src={slide.image} alt="" />
+                <img className={styles.swiper_card__icon} src={require('../../assets/net.png')} alt="" />
               </div>
               <div className={styles.swiper_card__bottom}>
                 <div className={styles.swiper_card__text}>{slide.title}</div>
@@ -85,7 +86,8 @@ export const Products = () => {
           <SwiperSlide key={i + 'b'}>
             <div className={styles.swiper_card}>
               <div className={styles.swiper_card__top}>
-                <img src={slide.image} alt="" />
+                <img className={styles.swiper_card__image} src={slide.image} alt="" />
+                <img className={styles.swiper_card__icon} src={require('../../assets/net.png')} alt="" />
               </div>
               <div className={styles.swiper_card__bottom}>
                 <div className={styles.swiper_card__text}>{slide.title}</div>
