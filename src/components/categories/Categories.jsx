@@ -6,49 +6,16 @@ import styles from "./categories.module.scss"
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { categories } from '../../utils/data';
+import { Link } from 'react-router-dom';
 
 export const Categories = () => {
-  const slides = [
-    {
-      title: "Qo'goz mahsulotlari",
-      image: require('../../assets/product1.png'),
-    },
-    {
-      title: "Professional changyutgichlar",
-      image: require('../../assets/product2.png'),
-    },
-    {
-      title: "Yuvish vositalari",
-      image: require('../../assets/product3.png'),
-    },
-    {
-      title: "Tozalash uskunalari",
-      image: require('../../assets/product4.jpg'),
-    },
-    {
-      title: "Qo'goz mahsulotlari",
-      image: require('../../assets/product1.png'),
-    },
-    {
-      title: "Professional changyutgichlar",
-      image: require('../../assets/product2.png'),
-    },
-    {
-      title: "Yuvish vositalari",
-      image: require('../../assets/product3.png'),
-    },
-    {
-      title: "Tozalash uskunalari",
-      image: require('../../assets/product4.jpg'),
-    }
-  ];
-
   return (
     <div className={styles.categories}>
       <div className={styles.categories_nav}>
         <div className={styles.categories_nav__title}>Kategoriyalar</div>
         <div className={styles.categories_nav__link}>
-          <a target='_blank' href="#">Hammasini ko'rish</a>
+          <Link to="/categories-page">Hammasini ko'rish</Link>
         </div>
       </div>
       <Swiper
@@ -58,16 +25,18 @@ export const Categories = () => {
         navigation={true}
         modules={[Navigation]}
         className={styles.swiper}
-        >
-          {slides.map((slide, i) => (
-            <SwiperSlide key={i}>
+      >
+        {categories.map((category, i) => (
+          <SwiperSlide key={i + 'category'}>
+            <Link to={`/products-page/${category.id}`}>
               <div className={styles.swiper_card}>
-                <div className={styles.swiper_card__title}>{slide.title}</div>
-                <img src={slide.image} alt="" />
+                <div className={styles.swiper_card__title}>{category.title}</div>
+                <img src={category.image} alt="" />
                 <div className={styles.swiper_card__text}>0 ta mahsulotlar</div>
               </div>
-            </SwiperSlide>
-          ))}
+            </Link>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   )

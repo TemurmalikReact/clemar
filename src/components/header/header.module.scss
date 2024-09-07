@@ -6,7 +6,7 @@
     transition: .3s all;
     z-index: 1000;
 
-    &.scroll {
+    &.scrolled {
         top: -69px;
     }
 }
@@ -95,7 +95,7 @@
                 outline: none;
                 border: none;
                 border-radius: 7px;
-                transition: .3s all;
+                transition: .15s all;
 
                 font-size: 18px;
                 font-weight: 600;
@@ -146,6 +146,12 @@
             font-weight: 700;
             color: #000;
 
+            transition: .15s all;
+
+            &:hover {
+                color: #49c3f2;
+            }
+
             span {
                 margin: 0 0 0 8px;
             }
@@ -162,7 +168,7 @@
             flex-grow: 1;
             background: white;
             height: 100%;
-            
+
             input {
                 border: none;
                 outline: none;
@@ -188,7 +194,7 @@
                     border-color: #000;
                 }
             }
-    
+
             button {
                 background: #49c3f2;
                 border: none;
@@ -204,6 +210,12 @@
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
 
+                transition: .15s all;
+
+                &:hover {
+                    opacity: .75;
+                }
+
                 svg {
                     width: 18px;
                 }
@@ -218,7 +230,7 @@
             background: #49c3f2;
             transition: .3s all;
             border-radius: 7px;
-    
+
             font-size: 18px;
             font-weight: 400;
             color: #fff;
@@ -228,11 +240,11 @@
             gap: 8px;
             overflow: visible;
             transition: .15s all;
-    
+
             &:hover {
                 opacity: .75;
             }
-    
+
             svg {
                 width: 18px;
                 margin-top: 1px;

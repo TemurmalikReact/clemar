@@ -6,7 +6,8 @@ export const Why = () => {
   return (
     <div className={styles.why}>
       <div className={styles.why_nav}>
-        <div className={styles.why_nav__title}>Nega bizni tanlashadi?
+        <div className={styles.why_nav__title}>
+          Nega bizni tanlashadi?
         </div>
       </div>
       <div className={styles.why_content}>

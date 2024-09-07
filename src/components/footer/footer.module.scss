@@ -1,0 +1,105 @@
+.footer {
+    background: #072b3d;
+    color: #fff;
+    padding: 46px 153px 46px 153px;
+    margin-top: 50px;
+
+    display: grid;
+    grid-template-columns: 4.5fr 2.75fr 2.75fr 2.75fr;
+
+    &_column {
+        &__title {
+            font-size: 23px;
+            font-weight: 500;
+        }
+
+        &__text {
+            font-size: 14px;
+            font-weight: 400;
+            margin-top: 25px;
+        }
+
+        &__phone {
+            color: #fff;
+            display: block;
+            font-size: 19px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        &__mail {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 400;
+            margin-top: 25px;
+            display: flex;
+            gap: 9px;
+
+            svg {
+                width: 16px;
+            }
+
+            span {
+                text-decoration: underline;
+            }
+        }
+
+        &__socials {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+
+            a {
+                svg {
+                    width: 39px;
+                }
+            }
+        }
+
+        &__subtitle {
+            font-size: 19px;
+            font-weight: 600;
+            color: #fff;
+            display: block;
+        }
+
+        &__link {
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+            display: block;
+            margin-top: 15px;
+        }
+
+        &__toplink {
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+            display: block;
+            margin-bottom: 30px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                margin-left: 10px;
+                transform: translateY(25%) scale(125%);
+                display: inline;
+            }
+        }
+
+        &__map {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.copyright {
+    padding: 16px 153px 16px 153px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+    opacity: 0.5;
+}

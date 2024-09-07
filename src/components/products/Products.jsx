@@ -6,49 +6,16 @@ import styles from "./products.module.scss"
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { products } from '../../utils/data';
+import { Link } from 'react-router-dom';
 
 export const Products = () => {
-  const slides = [
-    {
-      title: "Santoemma sabrina sw15",
-      image: require('../../assets/product1.png'),
-    },
-    {
-      title: "Fantom Promidi 250M",
-      image: require('../../assets/product2.png'),
-    },
-    {
-      title: "TVX TS1300",
-      image: require('../../assets/product3.png'),
-    },
-    {
-      title: "Ecoway Globalway Original	1l",
-      image: require('../../assets/product4.jpg'),
-    },
-    {
-      title: "Santoemma sabrina sw15",
-      image: require('../../assets/product1.png'),
-    },
-    {
-      title: "Fantom Promidi 250M",
-      image: require('../../assets/product2.png'),
-    },
-    {
-      title: "TVX TS1300",
-      image: require('../../assets/product3.png'),
-    },
-    {
-      title: "Ecoway Globalway Original	1l",
-      image: require('../../assets/product4.jpg'),
-    }
-  ];
-
   return (
     <div className={styles.products}>
       <div className={styles.products_nav}>
         <div className={styles.products_nav__title}>Eng Zo'r Mahsulotlar</div>
         <div className={styles.products_nav__link}>
-          <a target='_blank' href="#">Hammasini ko'rish</a>
+          <Link to="/products-page/all">Hammasini ko'rish</Link>
         </div>
       </div>
       <Swiper
@@ -62,15 +29,15 @@ export const Products = () => {
         }}
         modules={[Navigation, Autoplay]}
         className={styles.swiper}>
-        {slides.map((slide, i) => (
-          <SwiperSlide key={i + 'a'}>
+        {products.map((product, i) => (
+          <SwiperSlide key={i + 'product-1'}>
             <div className={styles.swiper_card}>
               <div className={styles.swiper_card__top}>
-                <img className={styles.swiper_card__image} src={slide.image} alt="" />
+                <img className={styles.swiper_card__image} src={product.image} alt="" />
                 <img className={styles.swiper_card__icon} src={require('../../assets/net.png')} alt="" />
               </div>
               <div className={styles.swiper_card__bottom}>
-                <div className={styles.swiper_card__text}>{slide.title}</div>
+                <div className={styles.swiper_card__text}>{product.title}</div>
                 <div className={styles.swiper_card__title}>0 So'm</div>
                 <button>Sotib Olish</button>
               </div>
@@ -82,15 +49,15 @@ export const Products = () => {
         slidesPerView={4}
         spaceBetween={30}
         className={styles.swiper}>
-        {slides.reverse().map((slide, i) => (
-          <SwiperSlide key={i + 'b'}>
+        {products.reverse().map((product, i) => (
+          <SwiperSlide key={i + 'product-2'}>
             <div className={styles.swiper_card}>
               <div className={styles.swiper_card__top}>
-                <img className={styles.swiper_card__image} src={slide.image} alt="" />
+                <img className={styles.swiper_card__image} src={product.image} alt="" />
                 <img className={styles.swiper_card__icon} src={require('../../assets/net.png')} alt="" />
               </div>
               <div className={styles.swiper_card__bottom}>
-                <div className={styles.swiper_card__text}>{slide.title}</div>
+                <div className={styles.swiper_card__text}>{product.title}</div>
                 <div className={styles.swiper_card__title}>0 So'm</div>
                 <button>Sotib Olish</button>
               </div>

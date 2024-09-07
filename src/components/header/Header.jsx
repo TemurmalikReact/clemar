@@ -22,7 +22,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <div className={`${styles.fixed} ${scrolled ? styles.scroll : null}`}>
+    <div className={`${styles.fixed} ${scrolled ? styles.scrolled : null}`}>
       <div className={styles.header}>
         <div className={styles.header_logo}>
           <svg viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">

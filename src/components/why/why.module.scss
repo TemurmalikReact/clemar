@@ -1,5 +1,6 @@
 .why {
     padding: 85px 153px 0 153px;
+    width: 79%;
 
     &_nav {
         display: flex;
@@ -16,7 +17,7 @@
     &_content {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
+        gap: 30px;
 
         img {
             width: 100%;
