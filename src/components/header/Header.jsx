@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './header.module.scss';
 import dropdown from '../../assets/dropdown.svg';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -20,6 +21,8 @@ export const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const navigate = useNavigate();
 
   return (
     <div className={`${styles.fixed} ${scrolled ? styles.scrolled : null}`}>
@@ -68,6 +71,7 @@ export const Header = () => {
         </nav>
       </div>
       <div className={styles.sticky}>
+        <svg onClick={() => navigate(-1)}  className={styles.toTop} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 17"><path d="M7.75135 16.7197L0.885098 9.55347C0.683348 9.31347 0.600098 9.08847 0.600098 8.89722C0.600098 8.70597 0.68331 8.44834 0.850898 8.27509L7.71715 1.10884C8.06035 0.749066 8.6299 0.737366 8.9884 1.08189C9.34933 1.42408 9.36107 1.99576 9.01535 2.35351L2.7466 8.89722L9.0466 15.4747C9.39231 15.831 9.38057 16.404 9.01965 16.7463C8.6626 17.091 8.0926 17.0797 7.75135 16.7197Z"></path></svg>
         <div className={styles.sticky_item}>
           <button className={styles.sticky_item__toggle}>
             <svg viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,9 +82,9 @@ export const Header = () => {
             <span>Katalog</span>
           </button>
         </div>
-        <div className={styles.sticky_item}>
+        <Link to="/" className={styles.sticky_item}>
           <img className={styles.sticky_item__logo} src={require('../../assets/logo.png')} alt="" />
-        </div>
+        </Link>
         <div className={`${styles.sticky_item} ${styles.search_wrapper}`}>
           <div className={styles.sticky_item__search}>
             <input type="text" placeholder="Qidiruv" />

@@ -8,34 +8,49 @@ import { Header } from "./components/header/Header";
 import { CategoriesPage } from "./pages/CategoriesPage/CategoriesPage";
 import styles from './app.module.scss'
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
+import { Outlet } from "react-router-dom";
+import useScrollToTop from "./utils/useScrollToTop";
 
-const router = createBrowserRouter([
-  {
-    id: "main",
-    path: "/",
-    Component: Main,
-  },
-  {
-    id: "categories-page",
-    path: "/categories-page",
-    Component: CategoriesPage,
-  },
-  {
-    id: "products-page",
-    path: "/products-page/:category",
-    Component: ProductsPage,
-  },
-]);
-
-export default function App() {
+function Layout() {
+  useScrollToTop();
+  
   return (
     <>
       <Header />
       <div className={styles.app}>
-        <RouterProvider router={router} fallbackElement={<p>Initial Load...</p>} />
+        <Outlet />
       </div>
       <Footer />
     </>
+  );
+}
+
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      {
+        id: "main",
+        path: "/",
+        Component: Main,
+      },
+      {
+        id: "categories-page",
+        path: "/categories-page",
+        Component: CategoriesPage,
+      },
+      {
+        id: "products-page",
+        path: "/products-page/:category",
+        Component: ProductsPage,
+      },
+    ]
+  }
+]);
+
+export default function App() {
+  return (
+    <RouterProvider router={router} />
   );
 }
 

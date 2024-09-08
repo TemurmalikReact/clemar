@@ -124,6 +124,27 @@
     font-size: 14px;
     font-weight: 600;
 
+    .toTop {
+        width: 25px;
+        cursor: pointer;
+        outline: none;
+        transition: .3s all;
+        border: none;
+        outline: none;
+        background: white;
+        
+        &:hover {
+            path {
+                opacity: .6;
+            }
+        }
+        
+        path {
+            transition: .15s all;
+            fill: #49c3f2;
+        }
+    }
+
     &_item {
         height: 100%;
         display: flex;

@@ -1,13 +1,16 @@
 import { useParams } from "react-router-dom";
-import { products } from "../../utils/data";
+import { categories, products } from "../../utils/data";
 import styles from "./ProductsPage.module.scss"
 
 export const ProductsPage = () => {
     const { category } = useParams();
+    let productTitle = categories.find((categoryFilter => categoryFilter.id == category))?.title;
+    if (category == 'all') productTitle = 'Mahsulotlar';
+
     return (
         <div className={styles.products}>
             <div className={styles.products_nav}>
-                <div className={styles.products_nav__title}>Kategoriyalar</div>
+                <div className={styles.products_nav__title}>{productTitle}</div>
             </div>
             <div className={styles.content}>
                 {products.filter((product) => {
