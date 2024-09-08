@@ -28,7 +28,7 @@ export const Categories = () => {
       >
         {categories.map((category, i) => (
           <SwiperSlide key={i + 'category'}>
-            <Link to={`/products-page/${category.id}`}>
+            <Link to={`/products-page/${category.id}`}>   
               <div className={styles.swiper_card}>
                 <div className={styles.swiper_card__title}>{category.title}</div>
                 <img src={category.image} alt="" />

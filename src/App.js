@@ -10,6 +10,8 @@ import styles from './app.module.scss'
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import { Outlet } from "react-router-dom";
 import useScrollToTop from "./utils/useScrollToTop";
+import ProductPage from "./pages/ProductPage/ProductPage";
+import Modal from "./reusable/Modal";
 
 function Layout() {
   useScrollToTop();
@@ -21,6 +23,7 @@ function Layout() {
         <Outlet />
       </div>
       <Footer />
+      <Modal />
     </>
   );
 }
@@ -43,6 +46,11 @@ const router = createBrowserRouter([
         id: "products-page",
         path: "/products-page/:category",
         Component: ProductsPage,
+      },
+      {
+        id: "product",
+        path: "/product/:product",
+        Component: ProductPage,
       },
     ]
   }
