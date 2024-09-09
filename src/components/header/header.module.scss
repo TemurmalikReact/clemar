@@ -155,8 +155,10 @@
         }
 
         &.search_wrapper {
+            display: flex;
+            flex-direction: column;
             flex-grow: 1;
-            padding: 0 30px;
+            align-items: flex-start;
         }
 
         a {
@@ -184,11 +186,12 @@
 
         &__search {
             display: flex;
-            align-items: center;
             border-radius: 7px;
             flex-grow: 1;
             background: white;
             height: 100%;
+            width: 100%;
+            margin-top: 3px;
 
             input {
                 border: none;
@@ -239,6 +242,29 @@
 
                 svg {
                     width: 18px;
+                }
+            }
+        }
+
+        &__found {
+            background: #49c3f2;
+            width: 100%;
+            margin-top: 8px;
+            max-height: 328px;
+            overflow-y: scroll;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 104;
+
+            a {
+                color: #fff;
+                padding: 15px 20px;
+                font-size: 14px;
+                font-weight: 400;
+
+                &:hover {
+                    color: #49c3f2;
+                    background: #fff;
                 }
             }
         }

@@ -2,12 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './header.module.scss';
 import dropdown from '../../assets/dropdown.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { categories, subCategories } from '../../utils/data';
+import { categories, products, subCategories } from '../../utils/data';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [categoriesActive, setCategoriesActive] = useState(1);
   const [katalogActive, setKatalogActive] = useState(false);
+  const [search, setSearch] = useState('');
+
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const inputRef = useRef(null); // To track input element reference
+  const productListRef = useRef(null); // To track product list reference
 
   const katalogRef = useRef(null);
 
@@ -38,6 +43,24 @@ export const Header = () => {
   }, []);
 
   const navigate = useNavigate();
+
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+
+  const handleFocus = () => {
+    setIsInputFocused(true);
+  };
+
+  const handleBlur = (event) => {
+    if (
+      productListRef.current &&
+      !productListRef.current.contains(event.relatedTarget)
+    ) {
+      setIsInputFocused(false);
+    }
+  };
 
   return (
     <div ref={katalogRef} className={`${styles.fixed} ${scrolled ? styles.scrolled : null}`}>
@@ -102,7 +125,13 @@ export const Header = () => {
         </Link>
         <div className={`${styles.sticky_item} ${styles.search_wrapper}`}>
           <div className={styles.sticky_item__search}>
-            <input type="text" placeholder="Qidiruv" />
+            <input
+              ref={inputRef}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              type="text" placeholder="Qidiruv" />
             <button>
               <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="10.7666" cy="10.2666" r="8.98856" stroke="#ffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -110,14 +139,23 @@ export const Header = () => {
               </svg>
             </button>
           </div>
+          {isInputFocused && filteredProducts.length > 0 && search &&
+            <div ref={productListRef} className={styles.sticky_item__found}>
+              {
+                filteredProducts.map((product) => (
+                  <Link onClick={handleBlur} to={`/product/${product.id}`}>{product.title}</Link>
+                ))
+              }
+            </div>
+          }
         </div>
         <div className={styles.sticky_item}>
-          <a target='_blank' href="#">
+          <a className={styles.sticky_item__link} target='_blank' href="#">
             <span>Biz haqimizda</span>
           </a>
         </div>
         <div className={styles.sticky_item}>
-          <a target='_blank' href="#">
+          <a className={styles.sticky_item__link} target='_blank' href="#">
             <img src={require('../../assets/net.png')} alt="" />
             <span>Savat</span>
           </a>
