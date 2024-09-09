@@ -48,6 +48,11 @@ const router = createBrowserRouter([
         Component: ProductsPage,
       },
       {
+        id: "subcategory-products-page",
+        path: "/subcategory-products-page/:subcategory",
+        Component: ProductsPage,
+      },
+      {
         id: "product",
         path: "/product/:product",
         Component: ProductPage,

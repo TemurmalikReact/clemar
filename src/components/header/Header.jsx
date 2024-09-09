@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './header.module.scss';
 import dropdown from '../../assets/dropdown.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import { categories, subCategories } from '../../utils/data';
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [categoriesActive, setCategoriesActive] = useState(1);
+  const [katalogActive, setKatalogActive] = useState(false);
+
+  const katalogRef = useRef(null);
 
   const handleScroll = () => {
+    setKatalogActive(false);
+
     if (window.scrollY > 0) {
       setScrolled(true);
     } else {
@@ -14,18 +21,26 @@ export const Header = () => {
     }
   };
 
+  const handleClickOutside = (event) => {
+    if (katalogRef.current && !katalogRef.current.contains(event.target)) {
+      setKatalogActive(false);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
   const navigate = useNavigate();
 
   return (
-    <div className={`${styles.fixed} ${scrolled ? styles.scrolled : null}`}>
+    <div ref={katalogRef} className={`${styles.fixed} ${scrolled ? styles.scrolled : null}`}>
       <div className={styles.header}>
         <div className={styles.header_logo}>
           <svg viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,9 +86,9 @@ export const Header = () => {
         </nav>
       </div>
       <div className={styles.sticky}>
-        <svg onClick={() => navigate(-1)}  className={styles.toTop} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 17"><path d="M7.75135 16.7197L0.885098 9.55347C0.683348 9.31347 0.600098 9.08847 0.600098 8.89722C0.600098 8.70597 0.68331 8.44834 0.850898 8.27509L7.71715 1.10884C8.06035 0.749066 8.6299 0.737366 8.9884 1.08189C9.34933 1.42408 9.36107 1.99576 9.01535 2.35351L2.7466 8.89722L9.0466 15.4747C9.39231 15.831 9.38057 16.404 9.01965 16.7463C8.6626 17.091 8.0926 17.0797 7.75135 16.7197Z"></path></svg>
+        <svg onClick={() => navigate(-1)} className={styles.toTop} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 17"><path d="M7.75135 16.7197L0.885098 9.55347C0.683348 9.31347 0.600098 9.08847 0.600098 8.89722C0.600098 8.70597 0.68331 8.44834 0.850898 8.27509L7.71715 1.10884C8.06035 0.749066 8.6299 0.737366 8.9884 1.08189C9.34933 1.42408 9.36107 1.99576 9.01535 2.35351L2.7466 8.89722L9.0466 15.4747C9.39231 15.831 9.38057 16.404 9.01965 16.7463C8.6626 17.091 8.0926 17.0797 7.75135 16.7197Z"></path></svg>
         <div className={styles.sticky_item}>
-          <button className={styles.sticky_item__toggle}>
+          <button onClick={() => { setKatalogActive((prev) => !prev) }} className={styles.sticky_item__toggle}>
             <svg viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M16 1C16 1.55228 15.5523 2 15 2H1C0.447715 2 0 1.55228 0 1C0 0.447715 0.447715 0 1 0H15C15.5523 0 16 0.447715 16 1Z" fill="#ffff" />
               <path d="M16 7C16 7.55228 15.5523 8 15 8H1C0.447715 8 0 7.55228 0 7C0 6.44772 0.447715 6 1 6H15C15.5523 6 16 6.44772 16 7Z" fill="#ffff" />
@@ -106,6 +121,22 @@ export const Header = () => {
             <img src={require('../../assets/net.png')} alt="" />
             <span>Savat</span>
           </a>
+        </div>
+      </div>
+      <div className={`${styles.katalog} ${katalogActive ? styles.active : null}`}>
+        <div className={styles.katalog_categories}>
+          {categories.map((category) =>
+            <div onMouseEnter={() => setCategoriesActive(category.id)} className={`${styles.katalog_categories__item} ${category.id == categoriesActive ? styles.active : null}`}>
+              <img src={category.ico} alt="" /> <span>{category.title}</span>
+            </div>
+          )}
+        </div>
+        <div className={styles.katalog_subcategories}>
+          {subCategories.filter((subCategory) => subCategory.category == categoriesActive).map((subCategory) =>
+            <div className={styles.katalog_subcategories__item}>
+              <Link onClick={() => { setKatalogActive((prev) => !prev) }} to={`/subcategory-products-page/${subCategory.id}`}>{subCategory.title}</Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

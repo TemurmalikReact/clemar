@@ -23,7 +23,7 @@ export const Products = () => {
       <div className={styles.products_nav}>
         <div className={styles.products_nav__title}>Eng Zo'r Mahsulotlar</div>
         <div className={styles.products_nav__link}>
-          <Link to="/products-page/all">Hammasini ko'rish</Link>
+          <Link to="/products-page/all">Hamma Mahsulotlar</Link>
         </div>
       </div>
       <Swiper

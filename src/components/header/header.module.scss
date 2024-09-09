@@ -273,3 +273,64 @@
         }
     }
 }
+
+.katalog {
+    display: none; 
+
+    &.active {
+        display: grid;
+    }
+    
+    grid-template-columns: 3.65fr 8.35fr;
+
+    background: #fff;
+    border-bottom: 1px solid rgba(175, 175, 175, 0.3);
+
+    padding: 20px 153px 30px 153px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    &_categories {
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid rgba(175, 175, 175, 0.3);
+
+        &__item {
+            padding: 15px;
+            gap: 15px;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+            cursor: pointer;
+
+            &.active {
+                background: rgba(175, 175, 175, 0.3);
+            }
+            
+            img {
+                width: 26px;
+            }
+        }
+    }
+
+    &_subcategories {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 65px;
+        column-gap: 140px;
+        row-gap: 30px;
+        height: fit-content;
+
+        &__item {
+            a {
+                color: #000;
+                transform: .3s all;
+
+                &:hover {
+                    color: #49c3f2;
+                }
+            }
+        }
+    }
+}

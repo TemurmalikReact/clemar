@@ -1,11 +1,14 @@
 import { Link, useParams } from "react-router-dom";
-import { categories, products } from "../../utils/data";
+import { categories, products, subCategories } from "../../utils/data";
 import styles from "./ProductsPage.module.scss"
 
 export const ProductsPage = () => {
-    const { category } = useParams();
+    const { category, subcategory } = useParams();
+
     let productTitle = categories.find((categoryFilter => categoryFilter.id == category))?.title;
     if (category == 'all') productTitle = 'Mahsulotlar';
+
+    if (category == undefined) productTitle = subCategories.find((subcategoryFilter => subcategoryFilter.id == subcategory))?.title;
 
     return (
         <div className={styles.products}>
@@ -15,7 +18,8 @@ export const ProductsPage = () => {
             <div className={styles.content}>
                 {products.filter((product) => {
                     if (category == 'all') return product;
-                    else return product.category == category
+                    else if (category == undefined) return product.subcategory == subcategory
+                    return product.category == category
                 }).map((product, i) => (
                     <Link key={i + 'product-page'} to={`/product/${product.id}`}>
                         <div className={styles.content_card}>

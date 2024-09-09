@@ -15,7 +15,7 @@ export const Categories = () => {
       <div className={styles.categories_nav}>
         <div className={styles.categories_nav__title}>Kategoriyalar</div>
         <div className={styles.categories_nav__link}>
-          <Link to="/categories-page">Hammasini ko'rish</Link>
+          <Link to="/categories-page">Hamma Kategoriyalar</Link>
         </div>
       </div>
       <Swiper
