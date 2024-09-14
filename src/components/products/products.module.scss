@@ -227,122 +227,7 @@
     
             button {
                 font-size: 16px;
-                height: 33px;
-                border-radius: 9px;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1280px) {
-    .products {
-        padding: 60px 33px 0 33px;
-
-        &_nav {
-            margin-bottom: 25px;
-
-            &__title {
-                font-size: 30px;
-            }
-
-            &__link {
-                a {
-                    font-size: 16px;
-                }
-            }
-        }
-    }
-
-    .swiper {
-        &_card {
-            padding: 7px;
-            border-radius: 16px;
-            gap: 11px;
-    
-            &__top {
-                border-radius: 11px;
-                padding: 14px;
-            }
-    
-            &__bottom {
-                gap: 14px;
-            }
-    
-            svg {
-                width: 18px;
-                top: 9px;
-                right: 9px;
-            }
-    
-            &__title {
-                font-size: 16px;
-            }
-            
-            &__text {
-                font-size: 12px;
-            }
-    
-            button {
-                font-size: 16px;
-                height: 33px;
-                border-radius: 9px;
-            }
-        }
-    }
-}
-
-
-@media screen and (max-width: 1280px) {
-    .products {
-        padding: 60px 33px 0 33px;
-
-        &_nav {
-            margin-bottom: 25px;
-
-            &__title {
-                font-size: 30px;
-            }
-
-            &__link {
-                a {
-                    font-size: 16px;
-                }
-            }
-        }
-    }
-
-    .swiper {
-        &_card {
-            padding: 7px;
-            border-radius: 16px;
-            gap: 11px;
-    
-            &__top {
-                border-radius: 11px;
-                padding: 14px;
-            }
-    
-            &__bottom {
-                gap: 14px;
-            }
-    
-            svg {
-                width: 18px;
-                top: 9px;
-                right: 9px;
-            }
-    
-            &__title {
-                font-size: 16px;
-            }
-            
-            &__text {
-                font-size: 12px;
-            }
-    
-            button {
-                font-size: 16px;
-                height: 33px;
+                height: 35px;
                 border-radius: 9px;
             }
         }
@@ -399,7 +284,7 @@
     
             button {
                 font-size: 15px;
-                height: 30px;
+                height: 33px;
                 border-radius: 8px;
             }
         }
@@ -456,7 +341,7 @@
     
             button {
                 font-size: 14px;
-                height: 28px;
+                height: 30px;
                 border-radius: 7px;
             }
         }
