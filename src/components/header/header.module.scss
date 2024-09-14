@@ -7,7 +7,7 @@
     z-index: 100;
 
     &.scrolled {
-        top: -69px;
+        top: -71px;
     }
 }
 
@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: #49c3f2;
-    height: 69px;
+    height: 70px;
     padding: 0 153px;
 
     font-size: 14px;
@@ -83,6 +83,7 @@
                 background: transparent;
                 border: none;
                 outline: none;
+                cursor: pointer;
 
                 option {
                     color: #000;
@@ -124,7 +125,7 @@
     font-size: 14px;
     font-weight: 600;
 
-    .toTop {
+    .back {
         width: 25px;
         cursor: pointer;
         outline: none;
@@ -132,13 +133,13 @@
         border: none;
         outline: none;
         background: white;
-        
+
         &:hover {
             path {
                 opacity: .6;
             }
         }
-        
+
         path {
             transition: .15s all;
             fill: #49c3f2;
@@ -159,6 +160,8 @@
             flex-direction: column;
             flex-grow: 1;
             align-items: flex-start;
+            position: relative;
+            overflow-y: visible;
         }
 
         a {
@@ -170,28 +173,39 @@
             color: #000;
 
             transition: .15s all;
+            gap: 5px;
 
             &:hover {
                 color: #49c3f2;
+
+                svg {
+
+                    path {
+                        transition: .15s all;
+                        fill: #49c3f2;
+                    }
+                }
             }
 
-            span {
-                margin: 0 0 0 8px;
-            }
+            svg {
+                width: 25px;
+                cursor: pointer;
 
-            img {
-                width: 23px;
+                path {
+                    transition: .15s all;
+                    fill: #000;
+                }
             }
         }
 
         &__search {
             display: flex;
+            align-items: center;
             border-radius: 7px;
             flex-grow: 1;
             background: white;
             height: 100%;
             width: 100%;
-            margin-top: 3px;
 
             input {
                 border: none;
@@ -249,11 +263,14 @@
         &__found {
             background: #49c3f2;
             width: 100%;
-            margin-top: 8px;
+
+            position: absolute;
+            top: 115%;
+            left: 0;
+
             max-height: 328px;
             overflow-y: scroll;
             flex-shrink: 0;
-            position: relative;
             z-index: 104;
 
             a {
@@ -301,12 +318,12 @@
 }
 
 .katalog {
-    display: none; 
+    display: none;
 
     &.active {
         display: grid;
     }
-    
+
     grid-template-columns: 3.65fr 8.35fr;
 
     background: #fff;
@@ -333,7 +350,7 @@
             &.active {
                 background: rgba(175, 175, 175, 0.3);
             }
-            
+
             img {
                 width: 26px;
             }
@@ -355,6 +372,715 @@
 
                 &:hover {
                     color: #49c3f2;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1368px) {
+    .fixed {
+        &.scrolled {
+            top: -71px;
+        }
+    }
+
+    .header {
+        height: 70px;
+        padding: 0 53px;
+
+        font-size: 14px;
+
+        svg {
+            width: 20px;
+        }
+
+        &_logo {
+            &__text {
+                span {
+                    margin: 0 4px 0 8px;
+                }
+
+                a {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        &_nav {
+            gap: 30px;
+
+            &__item {
+                a {
+                    font-size: 14px;
+                }
+
+                .phone {
+                    font-size: 18px;
+                }
+
+                select {
+                    font-size: 14px;
+                }
+
+                button {
+                    width: 154px;
+                    height: 44px;
+
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .sticky {
+        gap: 30px;
+        height: 74px;
+        padding: 15px 53px 15px 53px;
+
+        font-size: 14px;
+
+        .back {
+            width: 25px;
+        }
+
+        &_item {
+            &__logo {}
+
+            &.search_wrapper {}
+
+            a {
+                font-size: 14px;
+
+                svg {
+                    width: 25px;
+                }
+            }
+
+            &__search {
+                input {
+                    padding: 11px;
+                    font-size: 14px;
+
+                    height: 40px;
+
+                    &::placeholder {
+                        font-size: 14px;
+                    }
+                }
+
+                button {
+                    height: 40px;
+                    width: 97.5px;
+
+                    svg {
+                        width: 18px;
+                    }
+                }
+            }
+
+            &__found {
+                max-height: 328px;
+
+                a {
+                    padding: 15px 20px;
+                    font-size: 14px;
+
+                    &:hover {
+                        color: #49c3f2;
+                        background: #fff;
+                    }
+                }
+            }
+
+            &__toggle {
+                width: 144px;
+                font-size: 18px;
+                gap: 8px;
+
+                svg {
+                    width: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .fixed {
+
+        &.scrolled {
+            top: -56px;
+        }
+    }
+
+    .header {
+        height: 55px;
+        padding: 0 33px;
+
+        font-size: 13px;
+
+        svg {
+            width: 18px;
+        }
+
+        &_logo {
+            &__text {
+                span {
+                    margin: 0 3px 0 7px;
+                }
+
+                a {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        &_nav {
+            gap: 25px;
+
+            &__item {
+                a {
+                    font-size: 13px;
+
+                    span {
+                        margin: 0 0 0 7px;
+                    }
+                }
+
+                .phone {
+                    font-size: 16px;
+                }
+
+                select {
+                    font-size: 13px;
+                }
+
+                button {
+                    width: 130px;
+                    height: 40px;
+
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .sticky {
+        gap: 20px;
+        height: 60px;
+        padding: 10px 33px 10px 33px;
+
+        font-size: 13px;
+
+        .back {
+            width: 22px;
+        }
+
+        &_item {
+            &__logo {}
+
+            &.search_wrapper {}
+
+            a {
+                font-size: 13px;
+
+                svg {
+                    width: 22px;
+                }
+            }
+
+            &__search {
+                input {
+                    padding: 9px;
+                    font-size: 13px;
+
+                    height: 36px;
+
+                    &::placeholder {
+                        font-size: 14px;
+                    }
+                }
+
+                button {
+                    height: 36px;
+                    width: 90px;
+
+                    svg {
+                        width: 16px;
+                    }
+                }
+            }
+
+            &__found {
+                max-height: 328px;
+
+                a {
+                    padding: 12px 18px;
+                    font-size: 13px;
+                }
+            }
+
+            &__toggle {
+                width: 125px;
+                font-size: 16px;
+                gap: 7px;
+
+                svg {
+                    width: 16px;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .fixed {
+        &.scrolled {
+            top: -56px;
+        }
+    }
+
+    .header {
+        height: 55px;
+        padding: 0 13px;
+
+        font-size: 11px;
+
+        svg {
+            width: 15px;
+        }
+
+        &_logo {
+            &__text {
+                span {
+                    margin: 0 2px 0 6px;
+                }
+
+                a {
+                    font-size: 11px;
+                }
+            }
+        }
+
+        &_nav {
+            gap: 20px;
+
+            &__item {
+                a {
+                    font-size: 11px;
+
+                    span {
+                        margin: 0 0 0 6px;
+                    }
+                }
+
+                .phone {
+                    font-size: 14px;
+                }
+
+                select {
+                    font-size: 11px;
+                }
+
+                button {
+                    width: 110px;
+                    height: 35px;
+
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .sticky {
+        gap: 15px;
+        height: 60px;
+        padding: 10px 13px 10px 13px;
+
+        font-size: 11px;
+
+        .back {
+            width: 20px;
+        }
+
+        &_item {
+            &__logo {
+                display: none;
+            }
+
+            &.search_wrapper {}
+
+            a {
+                font-size: 11px;
+
+                svg {
+                    width: 20px;
+                }
+            }
+
+            &__search {
+                input {
+                    padding: 8px;
+                    font-size: 11px;
+
+                    height: 36px;
+
+                    &::placeholder {
+                        font-size: 11px;
+                    }
+                }
+
+                button {
+                    height: 36px;
+                    width: 90px;
+
+                    svg {
+                        width: 14px;
+                    }
+                }
+            }
+
+            &__found {
+                max-height: 328px;
+
+                a {
+                    padding: 10px 16px;
+                    font-size: 11px;
+                }
+            }
+
+            &__toggle {
+                width: 125px;
+                font-size: 16px;
+                gap: 7px;
+
+                svg {
+                    width: 14px;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+.sticky {
+    &.input {
+        display: none;
+
+        .sticky_item {
+            &.search_wrapper {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .fixed {
+        &.scrolled {
+            top: -56px;
+        }
+    }
+
+    .header {
+        height: 55px;
+        padding: 0 13px;
+
+        font-size: 11px;
+
+        svg {
+            width: 15px;
+        }
+
+        &_logo {
+            &__text {
+                span {
+                    margin: 0 2px 0 6px;
+                }
+
+                a {
+                    font-size: 11px;
+                }
+            }
+        }
+
+        &_nav {
+            gap: 20px;
+
+            &__item {
+
+                &.button {
+                    display: none;
+                }
+                
+                a {
+                    font-size: 11px;
+                    display: none;
+
+                    span {
+                        margin: 0 0 0 6px;
+                    }
+                }
+
+                .phone {
+                    font-size: 14px;
+                }
+
+                select {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+
+    .sticky {
+        gap: 15px;
+        height: 60px;
+        padding: 10px 13px 10px 13px;
+        font-size: 11px;
+
+        border-bottom: none;
+        justify-content: initial;
+
+        .back {
+            width: 20px;
+        }
+
+        &_item {
+            height: 100%;
+
+            &:nth-child(5) {
+                margin-left: auto; /* Pushes the following elements to the right */
+            }
+
+            &__logo {
+                display: none;
+            }
+
+            &.search_wrapper {
+                display: none;
+            }
+
+            a {
+                font-size: 11px;
+
+                svg {
+                    width: 20px;
+                }
+            }
+
+            &__search {
+                input {
+                    padding: 8px;
+                    font-size: 11px;
+
+                    height: 36px;
+
+                    &::placeholder {
+                        font-size: 11px;
+                    }
+                }
+
+                button {
+                    height: 36px;
+                    width: 90px;
+
+                    svg {
+                        width: 16px;
+                    }
+                }
+            }
+
+            &__found {
+                max-height: 328px;
+
+                a {
+                    padding: 10px 16px;
+                    font-size: 11px;
+                }
+            }
+
+            &__toggle {
+                width: 125px;
+                height: 100%;
+                font-size: 16px;
+                gap: 7px;
+
+                svg {
+                    width: 14px;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    .sticky {
+        &.input {
+            display: flex;
+            border-bottom: 1px solid rgba(175, 175, 175, 0.3);
+            padding-top: 0;
+
+            .sticky_item {
+                &.search_wrapper {
+                    display: flex;
+
+                    input, button {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .fixed {
+        &.scrolled {
+            top: -41px;
+        }
+    }
+
+    .header {
+        height: 40px;
+        padding: 0 10px;
+
+        font-size: 10px;
+
+        svg {
+            width: 13px;
+        }
+
+        &_logo {
+            &__text {
+                span {
+                    margin: 0 1px 0 5px;
+                }
+
+                a {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        &_nav {
+            gap: 10px;
+
+            &__item {
+
+                &.button {
+                    display: none;
+                }
+                
+                a {
+                    font-size: 10px;
+                    display: none;
+
+                    span {
+                        margin: 0 0 0 5px;
+                    }
+                }
+
+                .phone {
+                    font-size: 12px;
+                }
+
+                select {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .sticky {
+        gap: 10px;
+        height: 50px;
+        padding: 7px 10px 7px 10px;
+        font-size: 10px;
+
+        border-bottom: none;
+        justify-content: initial;
+
+        .back {
+            width: 18px;
+        }
+
+        &_item {
+            height: 100%;
+
+            &__logo {
+            }
+
+            &.search_wrapper {
+            }
+
+            a {
+                font-size: 10px;
+
+                svg {
+                    width: 18px;
+                }
+            }
+
+            &__search {
+                input {
+                    padding: 7px;
+                    font-size: 10px;
+
+                    height: 36px;
+
+                    &::placeholder {
+                        font-size: 10px;
+                    }
+                }
+
+                button {
+                    height: 36px;
+                    width: 90px;
+
+                    svg {
+                        width: 16px;
+                    }
+                }
+            }
+
+            &__found {
+                max-height: 328px;
+
+                a {
+                    padding: 10px 16px;
+                    font-size: 11px;
+                }
+            }
+
+            &__toggle {
+                width: 100px;
+                height: 100%;
+                font-size: 12px;
+                gap: 5px;
+
+                svg {
+                    width: 14px;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    .sticky {
+        &.input {
+            display: flex;
+            border-bottom: 1px solid rgba(175, 175, 175, 0.3);
+            padding-top: 0;
+
+            .sticky_item {
+                &.search_wrapper {
+                    display: flex;
+
+                    input, button {
+                        height: 100%;
+                    }
                 }
             }
         }

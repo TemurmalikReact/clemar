@@ -19,10 +19,23 @@ export const Categories = () => {
         </div>
       </div>
       <Swiper
-        slidesPerView={4}
         spaceBetween={30}
         loop
         navigation={true}
+        breakpoints={{ 
+          100: {
+            slidesPerView: 1
+          },
+          501: {
+            slidesPerView: 2
+          },
+          769: {
+            slidesPerView: 3
+          },
+          1025: {
+            slidesPerView: 4
+          }
+        }}
         modules={[Navigation]}
         className={styles.swiper}
       >
@@ -30,7 +43,7 @@ export const Categories = () => {
           <SwiperSlide key={i + 'category'}>
             <Link to={`/products-page/${category.id}`}>   
               <div className={styles.swiper_card}>
-                <div className={styles.swiper_card__title}>{category.title}</div>
+                <div className={styles.swiper_card__title} dangerouslySetInnerHTML={{ __html: category.title }} />
                 <img src={category.image} alt="" />
                 <div className={styles.swiper_card__text}>0 ta mahsulotlar</div>
               </div>

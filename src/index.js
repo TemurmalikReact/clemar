@@ -4,13 +4,16 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalProvider } from './contexts/ModalContext';
+import { ProductProvider } from './contexts/ProductContext.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ModalProvider>
-      <App />
-    </ModalProvider>
+    <ProductProvider>
+      <ModalProvider>
+        <App />
+      </ModalProvider>
+    </ProductProvider>
   </React.StrictMode>
 );
 

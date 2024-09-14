@@ -48,7 +48,6 @@ export const Header = () => {
     product.title.toLowerCase().includes(search.toLowerCase())
   );
 
-
   const handleFocus = () => {
     setIsInputFocused(true);
   };
@@ -99,17 +98,17 @@ export const Header = () => {
           </div>
           <div className={styles.header_nav__item}>
             <select>
-              <option value="uz">O'z</option>
-              <option value="ru">Ru</option>
+              <option value="uz">O'zb</option>
+              <option value="ru">Rus</option>
             </select>
           </div>
-          <div className={styles.header_nav__item}>
+          <div className={`${styles.header_nav__item} ${styles.button}`}>
             <button>Mahsulotlar</button>
           </div>
         </nav>
       </div>
       <div className={styles.sticky}>
-        <svg onClick={() => navigate(-1)} className={styles.toTop} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 17"><path d="M7.75135 16.7197L0.885098 9.55347C0.683348 9.31347 0.600098 9.08847 0.600098 8.89722C0.600098 8.70597 0.68331 8.44834 0.850898 8.27509L7.71715 1.10884C8.06035 0.749066 8.6299 0.737366 8.9884 1.08189C9.34933 1.42408 9.36107 1.99576 9.01535 2.35351L2.7466 8.89722L9.0466 15.4747C9.39231 15.831 9.38057 16.404 9.01965 16.7463C8.6626 17.091 8.0926 17.0797 7.75135 16.7197Z"></path></svg>
+        <svg onClick={() => navigate(-1)} className={styles.back} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 17"><path d="M7.75135 16.7197L0.885098 9.55347C0.683348 9.31347 0.600098 9.08847 0.600098 8.89722C0.600098 8.70597 0.68331 8.44834 0.850898 8.27509L7.71715 1.10884C8.06035 0.749066 8.6299 0.737366 8.9884 1.08189C9.34933 1.42408 9.36107 1.99576 9.01535 2.35351L2.7466 8.89722L9.0466 15.4747C9.39231 15.831 9.38057 16.404 9.01965 16.7463C8.6626 17.091 8.0926 17.0797 7.75135 16.7197Z"></path></svg>
         <div className={styles.sticky_item}>
           <button onClick={() => { setKatalogActive((prev) => !prev) }} className={styles.sticky_item__toggle}>
             <svg viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -150,15 +149,45 @@ export const Header = () => {
           }
         </div>
         <div className={styles.sticky_item}>
-          <a className={styles.sticky_item__link} target='_blank' href="#">
-            <span>Biz haqimizda</span>
-          </a>
+          <Link to="/article/about" className={styles.sticky_item__link} href="#">
+            <span>Biz haqida</span>
+          </Link>
         </div>
         <div className={styles.sticky_item}>
-          <a className={styles.sticky_item__link} target='_blank' href="#">
-            <img src={require('../../assets/net.png')} alt="" />
-            <span>Savat</span>
-          </a>
+          <Link to="/products-page/favorite" className={styles.sticky_item__link}>
+            <span>Sevimli</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="heart">
+              <path d="M20.16,5A6.29,6.29,0,0,0,12,4.36a6.27,6.27,0,0,0-8.16,9.48l6.21,6.22a2.78,2.78,0,0,0,3.9,0l6.21-6.22A6.27,6.27,0,0,0,20.16,5Zm-1.41,7.46-6.21,6.21a.76.76,0,0,1-1.08,0L5.25,12.43a4.29,4.29,0,0,1,0-6,4.27,4.27,0,0,1,6,0,1,1,0,0,0,1.42,0,4.27,4.27,0,0,1,6,0A4.29,4.29,0,0,1,18.75,12.43Z"></path>
+            </svg>
+          </Link>
+        </div>
+      </div>
+      <div className={`${styles.sticky} ${styles.input}`}>
+        <div className={`${styles.sticky_item} ${styles.search_wrapper}`}>
+          <div className={styles.sticky_item__search}>
+            <input
+              ref={inputRef}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              type="text" placeholder="Qidiruv" />
+            <button>
+              <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10.7666" cy="10.2666" r="8.98856" stroke="#ffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M17.0183 16.9851L20.5423 20.5" stroke="#ffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+          {isInputFocused && filteredProducts.length > 0 && search &&
+            <div ref={productListRef} className={styles.sticky_item__found}>
+              {
+                filteredProducts.map((product) => (
+                  <Link onClick={handleBlur} to={`/product/${product.id}`}>{product.title}</Link>
+                ))
+              }
+            </div>
+          }
         </div>
       </div>
       <div className={`${styles.katalog} ${katalogActive ? styles.active : null}`}>
