@@ -114,7 +114,7 @@ export const Products = () => {
           }
         }}
         className={styles.swiper}>
-        {productsData.reverse().map((product, i) => (
+        {productsData.map((product, i) => (
           <SwiperSlide key={i + 'product-2'}>
             <Link to={`/product/${product.id}`}>
               {Card(product)}
