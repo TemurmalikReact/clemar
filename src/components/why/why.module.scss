@@ -1,6 +1,5 @@
 .why {
     padding: 85px 153px 0 153px;
-    width: 79%;
 
     &_nav {
         display: flex;
@@ -21,6 +20,113 @@
 
         img {
             width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 1368px) {
+    .why {
+        padding: 70px 53px 0 53px;
+
+        &_nav {
+            margin-bottom: 30px;
+
+            &__title {
+                font-size: 35px;
+            }
+
+            &__link {
+                a {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+    .why {
+        padding: 60px 33px 0 33px;
+
+        &_nav {
+            margin-bottom: 25px;
+
+            &__title {
+                font-size: 30px;
+            }
+
+            &__link {
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .why {
+        padding: 50px 13px 0 13px;
+
+        &_nav {
+            margin-bottom: 20px;
+
+            &__title {
+                font-size: 27px;
+            }
+
+            &__link {
+                a {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .why {
+        padding: 40px 10px 0 10px;
+
+        &_nav {
+            margin-bottom: 15px;
+
+            &__title {
+                font-size: 23px;
+            }
+
+            &__link {
+                a {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .why {
+        padding: 30px 10px 0 10px;
+
+        &_nav {
+            margin-bottom: 13px;
+
+            &__title {
+                font-size: 20px;
+            }
+
+            &__link {
+                a {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        &_content {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 }

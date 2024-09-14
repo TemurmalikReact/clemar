@@ -40,12 +40,25 @@ export const Partners = () => {
         <div className={styles.partners_nav__title}>Bizga ishonganlar</div>
       </div>
       <Swiper
-        slidesPerView={4}
         spaceBetween={30}
         loop
         autoplay={{
           "delay": 3000,
           "disableOnInteraction": false
+        }}
+        breakpoints={{ 
+          100: {
+            slidesPerView: 1
+          },
+          501: {
+            slidesPerView: 2
+          },
+          769: {
+            slidesPerView: 3
+          },
+          1025: {
+            slidesPerView: 4
+          }
         }}
         modules={[Autoplay]}
         className={styles.swiper}>

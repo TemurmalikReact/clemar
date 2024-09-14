@@ -12,9 +12,9 @@ export const Main = () => {
       <Banner />
       <Categories />
       <Products />
-      {/* 
       <Why />
       <Partners />
+      {/* 
       <News />
       <Contact /> */}
     </div>
