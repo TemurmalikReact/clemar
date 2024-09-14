@@ -21,13 +21,11 @@
 
     &_column {
         display: flex;
-        gap: 31px;
         padding: 30px;
         background: #49c3f2;
         border-radius: 16px;
 
         &.right {
-            gap: 0px;
             background: #072b3d;
         }
     }
@@ -49,6 +47,7 @@
             font-size: 14px;
             line-height: 18px;
             font-weight: 400;
+            padding-right: 31px;
         }
 
         button {
@@ -75,13 +74,250 @@
         align-items: center;
 
         img {
-            width: 225px;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 1368px) {
+    .news {
+        padding: 75px 53px 0 53px;
+
+        &_nav {
+            margin-bottom: 30px;
+
+            &__title {
+                font-size: 35px;
+            }
+
+            &__link {
+                a {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+    .news {
+        padding: 70px 33px 0 33px;
+
+        &_nav {
+            margin-bottom: 25px;
+
+            &__title {
+                font-size: 30px;
+            }
+
+            &__link {
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .content {
+        gap: 20px;
+    
+        &_column {
+            padding: 25px;
+            border-radius: 14px;
+        }
+        
+        &_wrap {
+            gap: 7px;
+    
+            &__title {
+                font-size: 20px;
+            }
+    
+            &__text {
+                font-size: 13px;
+                line-height: 17px;
+                padding-right: 25px;
+            }
+    
+            button {
+                width: 105px;
+                height: 45px;
+                border-radius: 7px;
+    
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .news {
+        padding: 65px 13px 0 13px;
+
+        &_nav {
+            margin-bottom: 20px;
+
+            &__title {
+                font-size: 27px;
+            }
+
+            &__link {
+                a {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .content {
+        &_column {
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        &_wrap {
+            gap: 6px;
+    
+            &__title {
+                font-size: 18px;
+            }
+    
+            &__text {
+                font-size: 12px;
+                line-height: 16px;
+                padding-right: 23px;
+            }
+    
+            button {
+                width: 90px;
+                height: 40px;
+                border-radius: 6px;
+    
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .content {
+        grid-template-columns: repeat(1, 1fr);
+
+        &_img {
+            img {
+                width: 150px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .news {
+        padding: 60px 10px 0 10px;
+
+        &_nav {
+            margin-bottom: 15px;
+
+            &__title {
+                font-size: 23px;
+            }
+
+            &__link {
+                a {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    
+    .content {
+        &_column {
+            padding: 18px;
+            border-radius: 11px;
+        }
+        
+        &_wrap {
+            gap: 6px;
+    
+            &__title {
+                font-size: 16px;
+            }
+    
+            &__text {
+                font-size: 11px;
+                line-height: 15px;
+                padding-right: 21px;
+            }
+    
+            button {
+                width: 80px;
+                height: 35px;
+                border-radius: 6px;
+    
+                font-size: 12px;
+            }
         }
 
-        &.right {
+        &_img {
             img {
-                width: 148px;
+                width: 130px;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .news {
+        padding: 55px 10px 0 10px;
+
+        &_nav {
+            margin-bottom: 13px;
+
+            &__title {
+                font-size: 20px;
+            }
+
+            &__link {
+                a {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .content {
+        &_column {
+            padding: 16px;
+            border-radius: 10px;
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+        &_wrap {
+            gap: 5px;
+    
+            &__title {
+                font-size: 15px;
+            }
+    
+            &__text {
+                font-size: 10px;
+                line-height: 14px;
+                padding-right: 20px;
+            }
+    
+            button {
+                width: 70px;
+                height: 30px;
+                border-radius: 5px;
+    
+                font-size: 11px;
+            }
+        }
+
+        &_img {
+            display: none;
         }
     }
 }

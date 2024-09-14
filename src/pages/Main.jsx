@@ -14,9 +14,8 @@ export const Main = () => {
       <Products />
       <Why />
       <Partners />
-      {/* 
       <News />
-      <Contact /> */}
+      {/* <Contact />  */}
     </div>
   );
 }
