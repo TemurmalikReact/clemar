@@ -306,8 +306,7 @@ const stored = localStorage.getItem("products");
 if (stored == undefined) {
     localStorage.setItem("products", JSON.stringify(mockProducts));
 } else {
-    localStorage.removeItem("products")
-    // localStorage.setItem("products", stored); 
+    localStorage.setItem("products", stored); 
 }
 
 export const products = JSON.parse(localStorage.getItem("products"))
