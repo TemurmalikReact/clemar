@@ -15,7 +15,7 @@ export const Main = () => {
       <Why />
       <Partners />
       <News />
-      {/* <Contact />  */}
+      <Contact /> 
     </div>
   );
 }
