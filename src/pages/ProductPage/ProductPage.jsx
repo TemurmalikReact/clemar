@@ -26,8 +26,24 @@ export const ProductPage = () => {
                         <div className={styles.picture_bottom}>
                             <Swiper
                                 slidesPerView={4}
-                                spaceBetween={30}
                                 navigation={true}
+                                breakpoints={{
+                                    0: {
+                                        spaceBetween: 10
+                                    },
+                                    500: {
+                                        spaceBetween: 15
+                                    },
+                                    769: {
+                                        spaceBetween: 20
+                                    },
+                                    1025: {
+                                        spaceBetween: 25
+                                    },
+                                    1282: {
+                                        spaceBetween: 30
+                                    },
+                                }}
                                 loop
                                 modules={[Navigation]}
                                 className={styles.swiper}>
@@ -53,17 +69,17 @@ export const ProductPage = () => {
                     <div className={styles.form}>
                         <div className={styles.form_title}>0 So'm</div>
                         <div className={styles.form_text}>
-                            Ishonchingiz komil bo'lsin, <br /> mahsulotlarimiz eng yuqori sifatlilari!
+                            Ishonchingiz komil bo'lsin, <br /> mahsulotlarimiz eng yuqori <br /> sifatlilari!
                         </div>
                         <button>Xarid qilish</button>
                     </div>
                 </div>
-                <div className={styles.more}>
+                {/* <div className={styles.more}>
                     <div className={styles.more_title}>Mahsulot haqida batafsil
                     </div>
                     <div className={styles.more_text}>Ride-on Floor Sweeper Machine TS1900
                     </div>
-                </div>
+                </div> */}
             </div>
             <Products />
         </>

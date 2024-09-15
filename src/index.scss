@@ -41,3 +41,13 @@ html {
 .swiper-wrapper {
   width: 0 !important;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #49c3f2; 
+  border: none; 
+}

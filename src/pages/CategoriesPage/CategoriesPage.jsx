@@ -12,7 +12,7 @@ export const CategoriesPage = () => {
                 {categories.map((category, i) => (
                     <Link key={i + 'category-page'} to={`/products-page/${category.id}`}>
                         <div className={styles.content_card}>
-                            <div className={styles.content_card__title}>{category.title}</div>
+                            <div className={styles.content_card__title} dangerouslySetInnerHTML={{ __html: category.title}} />
                             <img src={category.image} alt="" />
                             <div className={styles.content_card__text}>0 ta mahsulotlar</div>
                         </div>
