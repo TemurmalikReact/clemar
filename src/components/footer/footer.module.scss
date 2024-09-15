@@ -5,7 +5,7 @@
     margin-top: 50px;
 
     display: grid;
-    grid-template-columns: 4.5fr 2.75fr 2.75fr 2.75fr;
+    grid-template-columns: 4.4fr 2.7fr 2.2fr 2.9fr;
 
     &_column {
         &__title {
@@ -102,4 +102,401 @@
     font-weight: 400;
     color: #000;
     opacity: 0.5;
+}
+
+@media screen and (max-width: 1368px) {
+    .footer {
+        color: #fff;
+        padding: 40px 53px 40px 53px;
+        margin-top: 45px;
+
+        grid-template-columns: 4.4fr 2.7fr 2.2fr 2.9fr;
+    }
+
+    .copyright {
+        padding: 14px 53px 14px 53px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .footer {
+        color: #fff;
+        padding: 35px 33px 35px 33px;
+        margin-top: 40px;
+
+        grid-template-columns: 4.4fr 2.7fr 2.2fr 2.9fr;
+
+        &_column {
+            &__title {
+                font-size: 20px;
+            }
+
+            &__text {
+                font-size: 12px;
+                margin-top: 21px;
+            }
+
+            &__phone {
+                font-size: 16px;
+                margin-top: 13px;
+            }
+
+            &__mail {
+                font-size: 12px;
+                margin-top: 21px;
+                gap: 7px;
+
+                svg {
+                    width: 14px;
+                }
+            }
+
+            &__socials {
+                margin-top: 21px;
+                gap: 21px;
+
+                a {
+                    svg {
+                        width: 33px;
+                    }
+                }
+            }
+
+            &__subtitle {
+                font-size: 17px;
+            }
+
+            &__link {
+                font-size: 12px;
+                margin-top: 12px;
+            }
+
+            &__toplink {
+                font-size: 12px;
+                margin-bottom: 25px;
+
+                svg {
+                    width: 14px;
+                    height: 14px;
+                    margin-left: 9px;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        padding: 13px 33px 13px 33px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .footer {
+        color: #fff;
+        padding: 30px 13px 30px 13px;
+        margin-top: 35px;
+
+        &_column {
+            &__title {
+                font-size: 18px;
+            }
+
+            &__text {
+                font-size: 11px;
+                margin-top: 19px;
+            }
+
+            &__phone {
+                font-size: 15px;
+                margin-top: 12px;
+            }
+
+            &__mail {
+                font-size: 11px;
+                margin-top: 19px;
+                gap: 6px;
+
+                svg {
+                    width: 13px;
+                }
+            }
+
+            &__socials {
+                margin-top: 19px;
+                gap: 19px;
+
+                a {
+                    svg {
+                        width: 30px;
+                    }
+                }
+            }
+
+            &__subtitle {
+                font-size: 16px;
+            }
+
+            &__link {
+                font-size: 11px;
+                margin-top: 11px;
+            }
+
+            &__toplink {
+                font-size: 11px;
+                margin-bottom: 22px;
+
+                svg {
+                    width: 13px;
+                    height: 13px;
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        padding: 12px 13px 12px 13px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 35px;
+        padding: 25px 13px 25px 13px;
+
+        &>div:first-child {
+            grid-column: 1 / 4;
+        }
+
+        &_column {
+            &__map {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .footer {
+        color: #fff;
+        padding: 20px 10px 20px 10px;
+        margin-top: 30px;
+        row-gap: 30px;
+
+        &_column {
+            &__title {
+                font-size: 16px;
+            }
+
+            &__text {
+                font-size: 10px;
+                margin-top: 16px;
+            }
+
+            &__phone {
+                font-size: 13px;
+                margin-top: 10px;
+            }
+
+            &__mail {
+                font-size: 10px;
+                margin-top: 16px;
+                gap: 5px;
+
+                svg {
+                    width: 12px;
+                }
+            }
+
+            &__socials {
+                margin-top: 16px;
+                gap: 16px;
+
+                a {
+                    svg {
+                        width: 25px;
+                    }
+                }
+            }
+
+            &__subtitle {
+                font-size: 15px;
+            }
+
+            &__link {
+                font-size: 10px;
+                margin-top: 10px;
+            }
+
+            &__toplink {
+                font-size: 10px;
+                margin-bottom: 20px;
+
+                svg {
+                    width: 12px;
+                    height: 12px;
+                    margin-left: 7px;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        padding: 11px 10px 11px 10px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 569px) {
+    .footer {
+        color: #fff;
+        padding: 20px 10px 20px 10px;
+        margin-top: 30px;
+        row-gap: 30px;
+
+        &_column {
+            &__title {
+                font-size: 15px;
+            }
+
+            &__text {
+                font-size: 9px;
+                margin-top: 15px;
+            }
+
+            &__phone {
+                font-size: 12px;
+                margin-top: 9px;
+            }
+
+            &__mail {
+                font-size: 9px;
+                margin-top: 15px;
+                gap: 5px;
+
+                svg {
+                    width: 11px;
+                }
+            }
+
+            &__socials {
+                margin-top: 15px;
+                gap: 15px;
+
+                a {
+                    svg {
+                        width: 23px;
+                    }
+                }
+            }
+
+            &__subtitle {
+                font-size: 13px;
+            }
+
+            &__link {
+                font-size: 9px;
+                margin-top: 9px;
+            }
+
+            &__toplink {
+                font-size: 9px;
+                margin-bottom: 18px;
+
+                svg {
+                    width: 11px;
+                    height: 11px;
+                    margin-left: 6px;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        padding: 11px 10px 11px 10px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        color: #fff;
+        padding: 25px 10px 25px 10px;
+        margin-top: 30px;
+        row-gap: 30px;
+        grid-template-columns: repeat(1, 1fr);
+
+        &>div:first-child {
+            grid-column: auto;
+        }
+
+        &_column {
+            &__title {
+                font-size: 17px;
+            }
+
+            &__text {
+                font-size: 11px;
+                margin-top: 18px;
+            }
+
+            &__phone {
+                font-size: 14px;
+                margin-top: 11px;
+            }
+
+            &__mail {
+                font-size: 11px;
+                margin-top: 18px;
+                gap: 7px;
+
+                svg {
+                    width: 13px;
+                }
+            }
+
+            &__socials {
+                margin-top: 18px;
+                gap: 18px;
+
+                a {
+                    svg {
+                        width: 27px;
+                    }
+                }
+            }
+
+            &__subtitle {
+                font-size: 15px;
+            }
+
+            &__link {
+                font-size: 11px;
+                margin-top: 11px;
+            }
+
+            &__toplink {
+                font-size: 11px;
+                margin-bottom: 21px;
+
+                svg {
+                    width: 13px;
+                    height: 13px;
+                    margin-left: 8px;
+                }
+            }
+
+            &__map {
+                display: block;
+            }
+        }
+    }
+
+    .copyright {
+        padding: 11px 10px 11px 10px;
+        font-size: 11px;
+    }
 }

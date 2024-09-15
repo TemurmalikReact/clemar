@@ -10,7 +10,7 @@ export const Footer = () => {
           <div className={styles.footer_column__title}>
             Clemar - O'zbekistonda 25 dan <br /> ortiq jahon brendlarining <br /> distribyutori
           </div>
-          <div className={styles.footer_column__text}>Aloqa uchun</div>
+          <div className={styles.footer_column__text}>Aloqa uchun:</div>
           <a href='#' className={styles.footer_column__phone}>+998 99 008 14 11</a>
           <a href='#' className={styles.footer_column__mail}>
             <svg viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">

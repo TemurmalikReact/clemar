@@ -23,7 +23,8 @@ function Layout() {
       <div className={styles.app}>
         <Outlet />
       </div>
-      {/* <Footer />
+      <Footer />
+      {/* 
       <Modal /> */}
     </>
   );
