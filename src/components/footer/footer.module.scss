@@ -423,6 +423,8 @@
 
 @media screen and (max-width: 500px) {
     .footer {
+        text-align: center;
+
         color: #fff;
         padding: 25px 10px 25px 10px;
         margin-top: 30px;
@@ -452,6 +454,7 @@
                 font-size: 11px;
                 margin-top: 18px;
                 gap: 7px;
+                justify-content: center;
 
                 svg {
                     width: 13px;
@@ -461,6 +464,7 @@
             &__socials {
                 margin-top: 18px;
                 gap: 18px;
+                justify-content: center;
 
                 a {
                     svg {
