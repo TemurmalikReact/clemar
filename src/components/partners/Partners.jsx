@@ -5,6 +5,7 @@ import { Autoplay } from 'swiper/modules';
 import styles from "./partners.module.scss"
 
 import 'swiper/css';
+import { useTranslation } from 'react-i18next';
 
 export const Partners = () => {
   const slides = [
@@ -34,10 +35,11 @@ export const Partners = () => {
     }
   ];
 
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.partners}>
       <div className={styles.partners_nav}>
-        <div className={styles.partners_nav__title}>Bizga ishonganlar</div>
+        <div className={styles.partners_nav__title}>{t("partners_title")}</div>
       </div>
       <Swiper
         spaceBetween={30}

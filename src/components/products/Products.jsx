@@ -10,6 +10,7 @@ import { products } from '../../utils/data';
 import { Link } from 'react-router-dom';
 import { useModal } from '../../contexts/ModalContext';
 import { useProduct } from '../../contexts/ProductContext';
+import { useTranslation } from 'react-i18next';
 
 export const Products = () => {
   const { modalOpen, setModalOpen } = useModal();
@@ -39,9 +40,9 @@ export const Products = () => {
           }
         </div>
         <div className={styles.swiper_card__bottom}>
-          <div className={styles.swiper_card__text}>{product.title}</div>
-          <div className={styles.swiper_card__title}>0 So'm</div>
-          <button onClick={toggleModal}>Sotib Olish</button>
+          <div className={styles.swiper_card__text}>{t(product.title)}</div>
+          <div className={styles.swiper_card__title}>0 {t("products_cost")}</div>
+          <button onClick={toggleModal}>{t("products_buy")}</button>
         </div>
       </div>
     )
@@ -57,12 +58,13 @@ export const Products = () => {
     localStorage.setItem("products", JSON.stringify(filtered));
   }
 
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.products}>
       <div className={styles.products_nav}>
-        <div className={styles.products_nav__title}>Mahsulotlar</div>
+        <div className={styles.products_nav__title}>{t("products_title")}</div>
         <div className={styles.products_nav__link}>
-          <Link to="/products-page/all">Hamma Mahsulotlar</Link>
+          <Link to="/products-page/all">{t("products_all_link")}</Link>
         </div>
       </div>
       <Swiper

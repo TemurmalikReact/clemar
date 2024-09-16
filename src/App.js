@@ -24,8 +24,7 @@ function Layout() {
         <Outlet />
       </div>
       <Footer />
-      {/* 
-      <Modal /> */}
+      <Modal /> 
     </>
   );
 }

@@ -75,3 +75,137 @@
         }
     }
 }
+
+@media screen and (max-width: 1280px) {
+    .modal {
+        width: 550px;
+        border-radius: 16px;
+        
+        svg {
+            width: 18px;
+            right: 18px;
+            top: 15px;
+        }
+    
+        .form {
+            gap: 15px;
+            padding: 40px;
+    
+            input {
+                padding: 15px;
+                font-size: 16px;
+                border-radius: 10px;
+                
+                &::placeholder {
+                    font-size: 16px;
+                }
+            }
+    
+            button {
+                padding: 15px;
+                font-size: 16px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .modal {
+        width: 500px;
+        border-radius: 15px;
+        
+        svg {
+            width: 16px;
+            right: 14px;
+            top: 14px;
+        }
+    
+        .form {
+            gap: 14px;
+            padding: 35px;
+    
+            input {
+                padding: 14px;
+                font-size: 15px;
+                border-radius: 10px;
+                
+                &::placeholder {
+                    font-size: 15px;
+                }
+            }
+    
+            button {
+                padding: 14px;
+                font-size: 15px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .modal {
+        width: 450px;
+        border-radius: 15px;
+        
+        svg {
+            width: 16px;
+            right: 14px;
+            top: 14px;
+        }
+    
+        .form {
+            gap: 14px;
+            padding: 35px;
+    
+            input {
+                padding: 14px;
+                font-size: 15px;
+                border-radius: 10px;
+                
+                &::placeholder {
+                    font-size: 15px;
+                }
+            }
+    
+            button {
+                padding: 14px;
+                font-size: 15px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .modal {
+        width: 90%;
+        border-radius: 15px;
+        
+        svg {
+            display: none;
+        }
+    
+        .form {
+            gap: 12px;
+            padding: 12px;
+    
+            input {
+                padding: 12px;
+                font-size: 12px;
+                border-radius: 8px;
+                
+                &::placeholder {
+                    font-size: 12px;
+                }
+            }
+    
+            button {
+                padding: 12px;
+                font-size: 12px;
+                border-radius: 8px;
+            }
+        }
+    }
+}

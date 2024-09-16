@@ -1,24 +1,26 @@
 import React from 'react'
 import styles from "./news.module.scss"
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 export const News = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.news}>
       <div className={styles.news_nav}>
-        <div className={styles.news_nav__title}>Bizning yangiliklar</div>
+        <div className={styles.news_nav__title}>{t("news_title")}</div>
       </div>
       <div className={styles.content}>
         <div className={styles.content_column}>
           <div className={styles.content_wrap}>
             <div className={styles.content_wrap__title}>
-              Clemardan bo'lib to'lash rejasi
+              {t("news_content_title_1")}
             </div>
             <div className={styles.content_wrap__text}>
-              Siz professional uskunani sotib olishni xohlaysizmi, lekin to'liq miqdorni ajratishga tayyor emasmisiz? Bizda siz uchun yechim bor! Bizning qulay bo'lib to'lash tizimimiz haqida bilib oling, bu sizga kerakli uskunani hoziroq sotib olish va uni bosqichma-bosqich to'lash imkonini beradi. Barcha tafsilotlarni bilish va bugun buyurtma berish uchun “Toʻlov” boʻlimiga tashrif buyuring. Clemar bilan xaridingizni yanada arzonroq qiling!
+              {t("news_content_text_1")}
             </div>
             <Link to={`/article/1`}>
-              <button>Batafsil</button>
+              <button>{t("news_content_button")}</button>
             </Link>
           </div>
           <div className={styles.content_img}>
@@ -28,12 +30,13 @@ export const News = () => {
         <div className={`${styles.content_column} ${styles.right}`}>
           <div className={styles.content_wrap}>
             <div className={styles.content_wrap__title}>
-              Clemardagi aktsiyalar
+              {t("news_content_title_2")}
             </div>
             <div className={`${styles.content_wrap__text} ${styles.right}`}>
-              Bizning maxsus takliflarimiz va chegirmalarimiz haqida bilib oling! Clemarning barcha foydali imkoniyatlaridan xabardor bo'lish uchun Aktsiyalar bo'limiga tashrif buyuring. Xaridlarni tejang va qo'shimcha bonuslarga ega bo'ling. Sizni ijtimoiy tarmoqlarimizda bundanda kattaroq syurprizlar uchun kutamiz</div>
+              {t("news_content_text_2")}
+            </div>
             <Link to={`/article/2`}>
-              <button>Batafsil</button>
+              <button>{t("news_content_button")}</button>
             </Link>
           </div>
           <div className={styles.content_img}>

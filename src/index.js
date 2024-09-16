@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ModalProvider } from './contexts/ModalContext';
 import { ProductProvider } from './contexts/ProductContext.js';
+import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

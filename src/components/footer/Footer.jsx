@@ -1,22 +1,24 @@
 import React from 'react'
 
 import styles from "./footer.module.scss"
+import { categories } from '../../utils/data'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export const Footer = () => {
+  const { t, i18n } = useTranslation();
   return (
     <>
       <div className={styles.footer}>
         <div className={styles.footer_column}>
-          <div className={styles.footer_column__title}>
-            Clemar - O'zbekistonda 25 dan <br /> ortiq jahon brendlarining <br /> distribyutori
-          </div>
-          <div className={styles.footer_column__text}>Aloqa uchun:</div>
+          <div className={styles.footer_column__title} dangerouslySetInnerHTML={{ __html: t("footer_title") }} />
+          <div className={styles.footer_column__text}>{t("footer_contact")}</div>
           <a href='#' className={styles.footer_column__phone}>+998 99 008 14 11</a>
           <a href='#' className={styles.footer_column__mail}>
             <svg viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 0C4.40935 0.00211003 2.88445 0.634928 1.75969 1.75969C0.634929 2.88445 0.00211004 4.40934 0 5.99999C0 10.3075 5.59 15.7025 5.8275 15.93C5.8737 15.9749 5.93558 16 6 16C6.06442 16 6.1263 15.9749 6.1725 15.93C6.41 15.7025 12 10.3075 12 5.99999C11.9979 4.40934 11.3651 2.88445 10.2403 1.75969C9.11555 0.634928 7.59065 0.00211003 6 0ZM6 8.74999C5.4561 8.74999 4.92442 8.58871 4.47218 8.28653C4.01995 7.98436 3.66747 7.55487 3.45933 7.05237C3.25119 6.54988 3.19673 5.99694 3.30284 5.4635C3.40895 4.93005 3.67086 4.44005 4.05546 4.05545C4.44005 3.67086 4.93005 3.40895 5.4635 3.30284C5.99695 3.19673 6.54988 3.25119 7.05238 3.45933C7.55488 3.66747 7.98437 4.01994 8.28654 4.47218C8.58871 4.92441 8.75 5.4561 8.75 5.99999C8.74956 6.7292 8.45969 7.42842 7.94406 7.94405C7.42843 8.45968 6.72921 8.74955 6 8.74999Z" fill="white" />
             </svg>
-            <span>Bizning manzil</span>
+            <span>{t("footer_our_address")}</span>
           </a>
           <a href='#' className={styles.footer_column__mail}>
             <svg viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,22 +51,22 @@ export const Footer = () => {
           </div>
         </div>
         <div className={styles.footer_column}>
-          <div className={styles.footer_column__subtitle}>Mahsulotlar</div>
-          <a href='#' className={styles.footer_column__link}>Qog'oz mahsulotlari</a>
-          <a href='#' className={styles.footer_column__link}>Professional changyutgichlar</a>
-          <a href='#' className={styles.footer_column__link}>Pol yuvish mashinalari</a>
-          <a href='#' className={styles.footer_column__link}>Yuvish vositalari</a>
+          <div className={styles.footer_column__subtitle}>{t("categories_title")}</div>
+          {categories.filter((o, i) => i != 1).map((category, i) => (
+            <Link className={styles.footer_column__link} key={category.id + "footer"} to={`/products-page/${category.id}`} dangerouslySetInnerHTML={{ __html: t(category.title) }} />
+          ))}
         </div>
         <div className={styles.footer_column}>
-          <div className={styles.footer_column__subtitle}>Ma'lumot</div>
-          <a href='#' className={styles.footer_column__link}>Biz haqimizda</a>
-          <a href='#' className={styles.footer_column__link}>Kategoriyalar</a>
-          <a href='#' className={styles.footer_column__link}>Nega bizni tanlashadi?</a>
-          <a href='#' className={styles.footer_column__link}>F.A.Q.</a>
+          <div className={styles.footer_column__subtitle}>{t("footer_data")}</div>
+          <a href='#' className={styles.footer_column__link}>{t("header_about_us")}</a>
+          <a href='#' className={styles.footer_column__link}>{t("categories_title")}</a>
+          <a href='#' className={styles.footer_column__link}>{t("why_title")}</a>
+          <a href='#' className={styles.footer_column__link}>{t("footer_qa")}</a>
         </div>
         <div className={styles.footer_column}>
-          <a href='#' className={styles.footer_column__toplink}>Toshkent shahar, Bunyodkor shoh <br /> ko'chasi</a>
-          <a href='#' className={styles.footer_column__toplink}>Xaritada ko’rish uchun shu yerga <br /> bosing
+          <a href='#' className={styles.footer_column__toplink} dangerouslySetInnerHTML={{ __html: t("footer_link_1")}} />
+          <a href='#' className={styles.footer_column__toplink}>
+            <span dangerouslySetInnerHTML={{ __html: t("footer_link_2") }} />
             <svg width="38" height="48" viewBox="0 0 38 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M20.875 40.22V2.84375C20.875 2.34647 20.6775 1.86956 20.3258 1.51793C19.9742 1.16629 19.4973 0.96875 19 0.96875C18.5027 0.96875 18.0258 1.16629 17.6742 1.51793C17.3226 1.86956 17.125 2.34647 17.125 2.84375V40.22L3.45252 25.6925C3.28388 25.5083 3.07877 25.3613 2.85023 25.2607C2.62169 25.1601 2.37472 25.1081 2.12502 25.1081C1.87531 25.1081 1.62834 25.1601 1.3998 25.2607C1.17126 25.3613 0.966151 25.5083 0.797515 25.6925C0.444652 26.0766 0.24884 26.5791 0.24884 27.1006C0.24884 27.6222 0.444652 28.1247 0.797515 28.5087L17.6725 46.4413C17.8412 46.6254 18.0463 46.7725 18.2748 46.8731C18.5033 46.9737 18.7503 47.0256 19 47.0256C19.2497 47.0256 19.4967 46.9737 19.7252 46.8731C19.9538 46.7725 20.1589 46.6254 20.3275 46.4413L37.2025 28.5087C37.5543 28.1249 37.7495 27.6232 37.7495 27.1025C37.7495 26.5818 37.5543 26.0801 37.2025 25.6962C37.0339 25.5121 36.8288 25.365 36.6002 25.2644C36.3717 25.1638 36.1247 25.1119 35.875 25.1119C35.6253 25.1119 35.3783 25.1638 35.1498 25.2644C34.9213 25.365 34.7161 25.5121 34.5475 25.6962L20.875 40.2162V40.22Z" fill="white" />
             </svg>
@@ -75,7 +77,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className={styles.copyright}>Barcha huquqlar himoyalangan</div>
+      <div className={styles.copyright}>{t("footer_copy")}</div>
     </>
   )
 }

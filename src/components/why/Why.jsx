@@ -1,13 +1,15 @@
 import React from 'react'
 
 import styles from "./why.module.scss"
+import { useTranslation } from 'react-i18next';
 
 export const Why = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className={styles.why}>
       <div className={styles.why_nav}>
         <div className={styles.why_nav__title}>
-          Nega bizni tanlashadi?
+          {t("why_title")}
         </div>
       </div>
       <div className={styles.why_content}>
