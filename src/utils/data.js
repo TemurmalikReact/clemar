@@ -312,26 +312,26 @@ export const products = JSON.parse(localStorage.getItem("products"))
 export const articles = [
     {
         id: "about",
-        title: "Biz Haqimizda",
-        text: "Professional tozalash sohasidagi ishonchli hamkoringiz - Clemarning yangi veb-saytiga xush kelibsiz! Ilgari 10 yildan ortiq tajribaga ega toza bozor sifatida tanilgan, biz sizni yangilangan va qayta ishlangan identifikatorimiz - Clemar bilan tanishtirishdan mamnunmiz. Biz bilan siz nafaqat mahsulotlarga, balki har bir detalda kafolatlangan sifat va professionallikka ega bo'lasiz. Clemar O'zbekistonda tozalash uskunalariga ixtisoslashgan 25 dan ortiq jahon brendlarining yetakchi distribyutori hisoblanadi. Bizning assortimentimiz quruq va nam tozalash uchun professional changyutgichlar, shuningdek, yuqori sifatli qog'oz, salfetkalar va qog'oz sochiqlarni o'z ichiga oladi. Lekin, albatta, bizning asosiy e'tiborimiz skrubber quritgichlardir. Clemar-da siz butun dunyo bo'ylab mashhur brendlarning simsiz va shnurli quritgichlarning keng tanlovini topasiz. Bizning tajribamiz va professionalligimiz sizga har qanday muhitda tozalikni saqlash uchun faqat eng yaxshi echimlarni taklif qilish imkonini beradi. Biz allaqachon taniqli kompaniyalar bilan hamkorlik qilayotganimizdan faxrlanamiz va O‘zbekistondagi obro‘-e’tiborimiz eng yaxshilar qatoridagi o‘rnimizni tasdiqlaydi. Clemar shunchaki yetkazib beruvchi emas, u tozalik va tartib uchun kurashda sizning ishonchli hamkoringizdir. Bizga qo'shiling, Clemar-ni tanlang va biznesingizni tozalash va gigienaning eng yuqori standarti bilan ta'minlang.",
+        title: "data_article_title_about",
+        text: "data_article_text_about",
         img: require("../assets/article.png")
     },
     {
         id: 1,
-        title: "Websayt faoliyat boshladi",
-        text: "Professional tozalash sohasidagi ishonchli hamkoringiz - Clemar kompaniyasining yangilangan veb-sayti ishga tushirilganini mamnuniyat bilan e'lon qilamiz! Ilgari Clema Market nomi bilan tanilgan va o'n yildan ortiq tajribaga ega bo'lgan holda, biz sizga yangilangan va qayta ishlangan shaxsiyatni - Clemarni taqdim etamiz. Kompaniyamiz O'zbekistonda tozalash uskunalari sohasida 25 dan ortiq jahon brendlarining yetakchi distribyutori hisoblanadi. Biz har bir detalda kafolatlangan sifat va professionallikni ta'minlashga ixtisoslashganmiz. Clemar assortimentida siz quruq va nam tozalash uchun professional changyutgichlarni, shuningdek, yuqori sifatli qog'oz, salfetkalar va qog'oz sochiqlarni topasiz.",
+        title: "data_article_title_1",
+        text: "data_article_text_1",
         img: require("../assets/banner1.png")
     },
     {
         id: 2,
-        title: "Clemardan rassrochka",
-        text: "Professional uskunani sotib olishni xohlaysiz, lekin bir yo‘la to‘lashga tayyor emasmisiz? Biz siz uchun yechim topdik! Uzum platformasi orqali biz qulay bo‘lib-bo‘lib to‘lash imkoniyatini taklif qilamiz. Mavjud to‘lov imkoniyatlari: Skrubber quritgichlar Professional changyutgichlar Yuvish vositalari Qog‘oz mahsulotlari Biznesingiz uchun kerak bo'lgan barcha tozalash uskunalarini moliyaviy cheklovlarsiz xarid qiling. Bo‘lib-bo‘lib to‘lash rejasi bilan darhol kerakli uskunani qo‘lga kiriting va asta-sekin to‘lang. Uzum orqali to‘lashning afzalliklari: Moslashuvchan to‘lov shartlari Oson onlayn ro‘yxatdan o‘tish Keraksiz hujjatlarsiz Tez tasdiqlash Clemar kompaniyasi bilan biznesingizni rivojlantirish imkoniyatini qo‘ldan boy bermang! Buyurtmani hoziroq joylashtiring. Yangiliklar va aksiyalarni kuzatib boring. Ijtimoiy tarmoqlarimizga obuna bo‘ling yoki salonimizga tashrif buyuring!",
+        title: "data_article_title_2",
+        text: "data_article_text_2",
         img: require("../assets/article1.png")
     },
     {
         id: 3,
-        title: "Clemardan aksiyalar",
-        text: "Maxsus Chegirma Faqat Siz Uchun! Siz izlayotgan barcha texnika mahsulotlari endi maxsus chegirmalarda! Bugun xarid qiling va katta tejash imkoniyatini qo‘ldan boy bermang. Cheklangan miqdordagi mahsulotlar, shoshiling! 🛒💥 Tez orada yetkazib berish va moslashuvchan to‘lov shartlari bilan, sizning qoniqishingiz biz uchun muhim!",
+        title: "data_article_title_3",
+        text: "data_article_text_3",
         img: require("../assets/article3.png")
-    },
-]
+    }
+];

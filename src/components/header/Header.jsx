@@ -6,6 +6,7 @@ import { categories, products, subCategories } from '../../utils/data';
 import { useTranslation } from 'react-i18next';
 
 export const Header = () => {
+  const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [categoriesActive, setCategoriesActive] = useState(1);
   const [katalogActive, setKatalogActive] = useState(false);
@@ -46,7 +47,7 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase())
+    t(product.title).toLowerCase().includes(search.toLowerCase())
   );
 
   const handleFocus = () => {
@@ -61,8 +62,6 @@ export const Header = () => {
       setIsInputFocused(false);
     }
   };
-
-  const { t, i18n } = useTranslation();
 
   const changeLanguage = (event) => {
     const language = event.target.value;
@@ -153,7 +152,7 @@ export const Header = () => {
             <div ref={productListRef} className={styles.sticky_item__found}>
               {
                 filteredProducts.map((product) => (
-                  <Link onClick={handleBlur} to={`/product/${product.id}`}>{product.title}</Link>
+                  <Link onClick={handleBlur} to={`/product/${product.id}`}>{t(product.title)}</Link>
                 ))
               }
             </div>
@@ -194,7 +193,7 @@ export const Header = () => {
             <div ref={productListRef} className={styles.sticky_item__found}>
               {
                 filteredProducts.map((product) => (
-                  <Link onClick={handleBlur} to={`/product/${product.id}`}>{product.title}</Link>
+                  <Link onClick={handleBlur} to={`/product/${product.id}`}>{t(product.title)}</Link>
                 ))
               }
             </div>

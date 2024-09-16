@@ -9,7 +9,7 @@ export const CategoriesPage = () => {
     return (
         <div className={styles.categories}>
             <div className={styles.categories_nav}>
-                <div className={styles.categories_nav__title}>Kategoriyalar</div>
+                <div className={styles.categories_nav__title}>{t("categories_title")}</div>
             </div>
             <div className={styles.content}>
                 {categories.map((category, i) => (

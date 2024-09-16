@@ -4,18 +4,20 @@ import styles from "./ProductsPage.module.scss"
 import { useModal } from "../../contexts/ModalContext";
 import { useState } from "react";
 import { useProduct } from "../../contexts/ProductContext";
+import { useTranslation } from "react-i18next";
 
 export const ProductsPage = () => {
     const { category, subcategory } = useParams();
+    const { t, i18n } = useTranslation();
 
-    let productTitle = categories.find((categoryFilter => categoryFilter.id == category))?.title;
-    if (category == 'all') productTitle = 'Mahsulotlar';
+    let productTitle = t(categories.find((categoryFilter => categoryFilter.id == category))?.title);
+    if (category == 'all') productTitle = t("products_title");
 
     if (category == 'favorite') {
-        productTitle = 'Sevimlilar';
+        productTitle = t("header_favorite");
     }
 
-    if (category == undefined) productTitle = subCategories.find((subcategoryFilter => subcategoryFilter.id == subcategory))?.title;
+    if (category == undefined) productTitle = t(subCategories.find((subcategoryFilter => subcategoryFilter.id == subcategory))?.title);
 
     const productFiltered = () => {
         return productsData.filter((product) => {
@@ -70,9 +72,9 @@ export const ProductsPage = () => {
                                 }
                             </div>
                             <div className={styles.content_card__bottom}>
-                                <div className={styles.content_card__text}>{product.title}</div>
-                                <div className={styles.content_card__title}>0 So'm</div>
-                                <button onClick={toggleModal}>Sotib Olish</button>
+                                <div className={styles.content_card__text}>{t(product.title)}</div>
+                                <div className={styles.content_card__title}>0 {t("products_cost")}</div>
+                                <button onClick={toggleModal}>{t("products_buy")}</button>
                             </div>
                         </div>
                     </Link>
