@@ -34,105 +34,106 @@ export const categories = [
 export const subCategories = [
     {
         id: 1,
-        title: 'TVX Pol yuvish mashinalari',
+        title: 'data_subcategory_1',
         category: 1
     },
     {
         id: 2,
-        title: 'Aylanadigan mashinalar',
+        title: 'data_subcategory_2',
         category: 1
     },
     {
         id: 3,
-        title: 'Supuruvchilar',
+        title: 'data_subcategory_3',
         category: 1
     },
     {
         id: 4,
-        title: 'CLEMAR Pol yuvish mashinalari',
+        title: 'data_subcategory_4',
         category: 1
     },
     {
         id: 5,
-        title: 'Sebo evolyutsiyasi',
+        title: 'data_subcategory_5',
         category: 2
     },
     {
         id: 6,
-        title: 'Fantom',
+        title: 'data_subcategory_6',
         category: 2
     },
     {
         id: 7,
-        title: 'Santoemma',
+        title: 'data_subcategory_7',
         category: 2
     },
     {
         id: 8,
-        title: 'Clemar CRS',
+        title: 'data_subcategory_8',
         category: 2
     },
     {
         id: 9,
-        title: 'Zaminni tozalash uchun uskunalar',
+        title: 'data_subcategory_9',
         category: 3
     },
     {
         id: 10,
-        title: 'Derazalarni tozalash uchun uskunalar',
+        title: 'data_subcategory_10',
         category: 3
     },
     {
         id: 11,
-        title: 'Tozalash aravachalari',
+        title: 'data_subcategory_11',
         category: 3
     },
     {
         id: 12,
-        title: 'Chelaklar, moplar, cho\'tkalar',
+        title: 'data_subcategory_12',
         category: 3
     },
     {
         id: 13,
-        title: 'Qo\'l yuvish vositalari',
+        title: 'data_subcategory_13',
         category: 4
     },
     {
         id: 14,
-        title: 'Umumiy gigiena vositalari',
+        title: 'data_subcategory_14',
         category: 4
     },
     {
         id: 15,
-        title: 'Idish va idish yuvish mashinalari uchun mahsulotlar',
+        title: 'data_subcategory_15',
         category: 4
     },
     {
         id: 16,
-        title: 'Kir yuvish vositalari',
+        title: 'data_subcategory_16',
         category: 4
     },
     {
         id: 17,
-        title: 'Tualet qog\'ozi',
+        title: 'data_subcategory_17',
         category: 5
     },
     {
         id: 18,
-        title: 'Salfetkalar',
+        title: 'data_subcategory_18',
         category: 5
     },
     {
         id: 19,
-        title: 'Qog\'oz sochiqlar',
+        title: 'data_subcategory_19',
         category: 5
     },
     {
         id: 20,
-        title: 'Boshqalar',
+        title: 'data_subcategory_20',
         category: 5
-    },
+    }
 ];
+
 
 const mockProducts = [
     {   
@@ -303,8 +304,7 @@ const stored = localStorage.getItem("products");
 if (stored == undefined) {
     localStorage.setItem("products", JSON.stringify(mockProducts));
 } else {
-    // localStorage.setItem("products", stored); 
-    localStorage.removeItem("products", stored); 
+    localStorage.setItem("products", stored); 
 }
 
 export const products = JSON.parse(localStorage.getItem("products"))

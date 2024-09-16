@@ -212,7 +212,7 @@ export const Header = () => {
         <div className={styles.katalog_subcategories}>
           {subCategories.filter((subCategory) => subCategory.category == categoriesActive).map((subCategory) =>
             <div className={styles.katalog_subcategories__item}>
-              <Link onClick={() => { setKatalogActive((prev) => !prev) }} to={`/subcategory-products-page/${subCategory.id}`}>{subCategory.title}</Link>
+              <Link onClick={() => { setKatalogActive((prev) => !prev) }} to={`/subcategory-products-page/${subCategory.id}`}>{t(subCategory.title)}</Link>
             </div>
           )}
         </div>

@@ -42,7 +42,6 @@
     "data_category_3": "Tozalash uskunalari",
     "data_category_4": "Yuvish vositalari",
     "data_category_5": "Qog'oz mahsulotlari",
-    
     "data_product_1": "TVX T15B",
     "data_product_2": "Labomat disc 18p",
     "data_product_3": "Floor Machine TS1900",
@@ -62,5 +61,26 @@
     "data_product_17": "Selpak Extra Toilet Paper 70 m",
     "data_product_18": "Selpak  Extra Napkins 200 pcs.",
     "data_product_19": "Selpak Extra Paper Towels 250 m",
-    "data_product_20": "Selpak Dispenser for toilet seat"
+    "data_product_20": "Selpak Dispenser for toilet seat",
+    
+    "data_subcategory_1": "TVX Pol yuvish mashinalari",
+    "data_subcategory_2": "Aylanadigan mashinalar",
+    "data_subcategory_3": "Supuruvchilar",
+    "data_subcategory_4": "CLEMAR Pol yuvish mashinalari",
+    "data_subcategory_5": "Sebo evolyutsiyasi",
+    "data_subcategory_6": "Fantom",
+    "data_subcategory_7": "Santoemma",
+    "data_subcategory_8": "Clemar CRS",
+    "data_subcategory_9": "Zaminni tozalash uchun uskunalar",
+    "data_subcategory_10": "Derazalarni tozalash uchun uskunalar",
+    "data_subcategory_11": "Tozalash aravachalari",
+    "data_subcategory_12": "Chelaklar, moplar, cho'tkalar",
+    "data_subcategory_13": "Qo'l yuvish vositalari",
+    "data_subcategory_14": "Umumiy gigiena vositalari",
+    "data_subcategory_15": "Idish va idish yuvish mashinalari uchun mahsulotlar",
+    "data_subcategory_16": "Kir yuvish vositalari",
+    "data_subcategory_17": "Tualet qog'ozi",
+    "data_subcategory_18": "Salfetkalar",
+    "data_subcategory_19": "Qog'oz sochiqlar",
+    "data_subcategory_20": "Boshqalar"
 }
