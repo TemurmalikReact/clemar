@@ -50,7 +50,7 @@ export const ProductsPage = () => {
     return (
         <div className={styles.products}>
             <div className={styles.products_nav}>
-                <div className={styles.products_nav__title}>{productTitle}</div>
+                <div className={styles.products_nav__title} dangerouslySetInnerHTML={{ __html: productTitle }} />
             </div>
             <div className={styles.content}>
                 {productFiltered().map((product, i) => (
