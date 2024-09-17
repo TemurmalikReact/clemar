@@ -61,7 +61,8 @@
 
         &__image {
             width: 82.5%;
-            max-height: 100%;
+            height: 250px;
+            object-fit: contain;
 
             cursor: pointer;
             transition: .15s all ease;
@@ -97,6 +98,13 @@
         }
 
         &__text {
+            display: -webkit-box;
+            line-clamp: 1; 
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
             font-size: 14px;
             font-weight: 600;
             opacity: .6;
@@ -175,6 +183,10 @@
             &__bottom {
                 gap: 14px;
             }
+
+            &__image {
+                height: 220px;
+            }
     
             svg {
                 width: 18px;
@@ -233,6 +245,10 @@
                 gap: 13px;
             }
     
+            &__image {
+                height: 160px;
+            }
+
             svg {
                 width: 16px;
                 top: 8px;
@@ -336,5 +352,11 @@
 
     .content {
         grid-template-columns: repeat(1, 1fr);
+
+        &_card {
+            &__image {
+                height: 220px;
+            }
+        }
     }
 }

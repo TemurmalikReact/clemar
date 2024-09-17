@@ -9,9 +9,12 @@ import 'swiper/css/navigation';
 import { categories } from '../../utils/data';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useProduct } from '../../contexts/ProductContext';
 
 export const Categories = () => {
   const { t, i18n } = useTranslation();
+  const { categoriesData, setCategoriesData } = useProduct();
+
   return (
     <div className={styles.categories}>
       <div className={styles.categories_nav}>
@@ -22,9 +25,9 @@ export const Categories = () => {
       </div>
       <Swiper
         spaceBetween={30}
-        loop
+        loop={categoriesData.length > 0}
         navigation={true}
-        breakpoints={{ 
+        breakpoints={{
           100: {
             slidesPerView: 1
           },
@@ -41,14 +44,16 @@ export const Categories = () => {
         modules={[Navigation]}
         className={styles.swiper}
       >
-        {categories.map((category, i) => (
-          <SwiperSlide key={i + 'category'}>
-            <Link to={`/products-page/${category.id}`}>   
-              <div className={styles.swiper_card}>
-                <div className={styles.swiper_card__title} dangerouslySetInnerHTML={{ __html: t(category.title) }} />
-                <img src={category.image} alt="" />
-                <div className={styles.swiper_card__text}>0 {t("categories_count")}</div>
+        {categoriesData.map((category, i) => (
+          <SwiperSlide style={{ height: "auto" }} key={category.id}>
+            <Link className={styles.swiper_card} to={`/products-page/${category.id}`}>
+              <div className={styles.swiper_card__title}>
+                {i18n.language === "ru"
+                  ? category.name_ru.split('/rn/')[0]
+                  : category.name_uz.split('/rn/')[0]}
               </div>
+              <img src={category.image} alt="" />
+              <div className={styles.swiper_card__text}>0 {t("categories_count")}</div>
             </Link>
           </SwiperSlide>
         ))}

@@ -28,7 +28,6 @@
     grid-template-columns: 4.6fr 3.8fr 3.6fr;
     gap: 50px;
 
-
     .picture {
         display: flex;
         flex-direction: column;
@@ -45,6 +44,8 @@
                 width: 100%;
                 border: 1px solid #dadada;
                 border-radius: 12px;
+                height: 80px;
+                object-fit: contain;
             }
         }
     }

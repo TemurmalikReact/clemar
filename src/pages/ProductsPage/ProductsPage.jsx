@@ -57,7 +57,7 @@ export const ProductsPage = () => {
                     <Link key={i + 'product-page'} to={`/product/${product.id}`}>
                         <div className={styles.content_card}>
                             <div className={styles.content_card__top}>
-                                <img className={styles.content_card__image} src={product.image} alt="" />
+                                <img className={styles.content_card__image} src={product.image1} alt="" />
                                 {product.favorite
                                     ?
                                     <svg onClick={(e) => toggleFavorite(e, product.id)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="heart">
@@ -72,8 +72,8 @@ export const ProductsPage = () => {
                                 }
                             </div>
                             <div className={styles.content_card__bottom}>
-                                <div className={styles.content_card__text}>{t(product.title)}</div>
-                                <div className={styles.content_card__title}>0 {t("products_cost")}</div>
+                                <div className={styles.content_card__text}>{i18n.language == "ru" ? product.text_ru : product.text_uz}</div>
+                                <div className={styles.content_card__title}>{product.price} {t("products_cost")}</div>
                                 <button onClick={toggleModal}>{t("products_buy")}</button>
                             </div>
                         </div>

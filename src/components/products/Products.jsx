@@ -16,6 +16,8 @@ export const Products = () => {
   const { modalOpen, setModalOpen } = useModal();
   const { productsData, setProductsData } = useProduct();
 
+  const { t, i18n } = useTranslation();
+
   const toggleModal = (e) => {
     setModalOpen(prevState => !prevState);
     e.preventDefault()
@@ -23,11 +25,11 @@ export const Products = () => {
 
   const Card = (product) => {
     return (
-      <div className={styles.swiper_card}>
+      <Link to={`/product/${product.id}`} className={styles.swiper_card}>
         <div className={styles.swiper_card__top}>
-          <img className={styles.swiper_card__image} src={product.image} alt="" />
+          <img className={styles.swiper_card__image} src={product.image1} alt="" />
           {product.favorite
-            ? 
+            ?
             <svg onClick={(e) => toggleFavorite(e, product.id)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="heart">
               <g>
                 <path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z"></path>
@@ -40,11 +42,11 @@ export const Products = () => {
           }
         </div>
         <div className={styles.swiper_card__bottom}>
-          <div className={styles.swiper_card__text}>{t(product.title)}</div>
-          <div className={styles.swiper_card__title}>0 {t("products_cost")}</div>
+          <div className={styles.swiper_card__text}>{i18n.language == "ru" ? product.text_ru : product.text_uz}</div>
+          <div className={styles.swiper_card__title}>{product.price} {t("products_cost")}</div>
           <button onClick={toggleModal}>{t("products_buy")}</button>
         </div>
-      </div>
+      </Link>
     )
   }
 
@@ -58,7 +60,6 @@ export const Products = () => {
     localStorage.setItem("products", JSON.stringify(filtered));
   }
 
-  const { t, i18n } = useTranslation();
   return (
     <div className={styles.products}>
       <div className={styles.products_nav}>
@@ -68,15 +69,16 @@ export const Products = () => {
         </div>
       </div>
       <Swiper
+        style={ { height: "auto" } }
         spaceBetween={30}
-        loop
+        loop={productsData.length > 0}
         navigation={true}
         autoplay={{
           "delay": 2500,
           "disableOnInteraction": false
         }}
         modules={[Navigation, Autoplay]}
-        breakpoints={{ 
+        breakpoints={{
           100: {
             slidesPerView: 1
           },
@@ -91,17 +93,16 @@ export const Products = () => {
           }
         }}
         className={styles.swiper}>
-        {productsData.map((product, i) => (
-          <SwiperSlide key={i + 'product-1'}>
-            <Link to={`/product/${product.id}`}>
-              {Card(product)}
-            </Link>
+        {productsData.filter(product => product.top).map((product, i) => (
+          <SwiperSlide key={product.id}>
+            {Card(product)}
           </SwiperSlide>
         ))}
       </Swiper>
       <Swiper
+        style={ { height: "auto" } }
         spaceBetween={30}
-        breakpoints={{ 
+        breakpoints={{
           100: {
             slidesPerView: 1
           },
@@ -116,8 +117,8 @@ export const Products = () => {
           }
         }}
         className={styles.swiper}>
-        {productsData.map((product, i) => (
-          <SwiperSlide key={i + 'product-2'}>
+        {productsData.filter(product => product.top).slice(-4).map((product, i) => (
+          <SwiperSlide key={product.id}>
             <Link to={`/product/${product.id}`}>
               {Card(product)}
             </Link>
