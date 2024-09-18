@@ -9,7 +9,7 @@ i18n
   .use(LanguageDetector) // Detect user language
   .use(initReactI18next) // Pass i18n down to react-i18next
   .init({
-    fallbackLng: 'en', // Use English if the detected language is not available
+    fallbackLng: 'uz', // Use English if the detected language is not available
     debug: true,
     supportedLngs: ['en', 'ru', 'uz'],
     interpolation: {

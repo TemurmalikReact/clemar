@@ -2,15 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './header.module.scss';
 import dropdown from '../../assets/dropdown.svg';
 import { Link, useNavigate } from 'react-router-dom';
-import { categories, products, subCategories } from '../../utils/data';
 import { useTranslation } from 'react-i18next';
+import { useProduct } from '../../contexts/ProductContext';
 
 export const Header = () => {
   const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
-  const [categoriesActive, setCategoriesActive] = useState(1);
+  const [categoriesActive, setCategoriesActive] = useState(0);
   const [katalogActive, setKatalogActive] = useState(false);
   const [search, setSearch] = useState('');
+
+  const { categoriesData, subCategoriesData, productsData, setProductsData } = useProduct();
 
   const [isInputFocused, setIsInputFocused] = useState(false);
   const inputRef = useRef(null); // To track input element reference
@@ -46,22 +48,31 @@ export const Header = () => {
 
   const navigate = useNavigate();
 
-  const filteredProducts = products.filter((product) =>
-    t(product.title).toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredProducts = productsData.filter((product) => {
+    if (i18n.language == "ru") {
+      return product.name_ru.toLowerCase().includes(search.toLowerCase())
+    } else if (i18n.language == "en") {
+      return product.name_en.toLowerCase().includes(search.toLowerCase())
+    }
+    else {
+      return product.name_uz.toLowerCase().includes(search.toLowerCase())
+    }
+  });
 
   const handleFocus = () => {
     setIsInputFocused(true);
   };
 
   const handleBlur = (event) => {
-    if (
-      productListRef.current &&
-      !productListRef.current.contains(event.relatedTarget)
-    ) {
-      setIsInputFocused(false);
-    }
-  };
+    setTimeout(() => {
+      if (
+        productListRef.current &&
+        !productListRef.current.contains(event.relatedTarget)
+      ) {
+        setIsInputFocused(false);
+      }
+    }, 300); 
+  };  
 
   const changeLanguage = (event) => {
     const language = event.target.value;
@@ -108,6 +119,7 @@ export const Header = () => {
               onChange={changeLanguage}
               value={i18n.language}
               className={styles.language_select}>
+              <option value="en">Eng</option>
               <option value="ru">Рус</option>
               <option value="uz">O'zb</option>
             </select>
@@ -152,7 +164,11 @@ export const Header = () => {
             <div ref={productListRef} className={styles.sticky_item__found}>
               {
                 filteredProducts.map((product) => (
-                  <Link onClick={handleBlur} to={`/product/${product.id}`}>{t(product.title)}</Link>
+                  <Link 
+                    // onClick={handleBlur} 
+                    to={`/product/${product.id}`}>
+                    {i18n.language == "ru" ? product.name_ru : (i18n.language == "en" ? product.name_en : product.name_uz)}
+                  </Link>
                 ))
               }
             </div>
@@ -193,7 +209,11 @@ export const Header = () => {
             <div ref={productListRef} className={styles.sticky_item__found}>
               {
                 filteredProducts.map((product) => (
-                  <Link onClick={handleBlur} to={`/product/${product.id}`}>{t(product.title)}</Link>
+                  <Link 
+                    // onClick={handleBlur} 
+                    to={`/product/${product.id}`}>
+                    {i18n.language == "ru" ? product.name_ru : (i18n.language == "en" ? product.name_en : product.name_uz)}
+                  </Link>
                 ))
               }
             </div>
@@ -202,18 +222,27 @@ export const Header = () => {
       </div>
       <div className={`${styles.katalog} ${katalogActive ? styles.active : null}`}>
         <div className={styles.katalog_categories}>
-          {categories.map((category) =>
-            <div onMouseEnter={() => setCategoriesActive(category.id)} className={`${styles.katalog_categories__item} ${category.id == categoriesActive ? styles.active : null}`}>
-              <img src={category.ico} alt="" /> <span dangerouslySetInnerHTML={{ __html: t(category.title) }} />
+          {categoriesData.map((category, i) =>
+            <div onMouseEnter={() => setCategoriesActive(i)} className={`${styles.katalog_categories__item} ${i == categoriesActive ? styles.active : null}`}>
+              <img src={category.ico} alt="" /> <span>
+                {i18n.language == "ru"
+                  ? category.name_ru.split('/rn/')[0]
+                  : (i18n.language == "en" ? category.name_en.split('/rn/')[0] : category.name_uz.split('/rn/')[0])
+                }
+              </span>
             </div>
           )}
         </div>
         <div className={styles.katalog_subcategories}>
-          {subCategories.filter((subCategory) => subCategory.category == categoriesActive).map((subCategory) =>
-            <div className={styles.katalog_subcategories__item}>
-              <Link onClick={() => { setKatalogActive((prev) => !prev) }} to={`/subcategory-products-page/${subCategory.id}`}>{t(subCategory.title)}</Link>
-            </div>
-          )}
+          {subCategoriesData
+            .filter((subCategory) => categoriesData.find((category, i) => i == categoriesActive && subCategory.category == category.id))
+            .map((subCategory) =>
+              <div className={styles.katalog_subcategories__item}>
+                <Link onClick={() => { setKatalogActive((prev) => !prev) }} to={`/subcategory-products-page/${subCategory.id}`}>
+                  {i18n.language == "ru" ? subCategory.name_ru : (i18n.language == "en" ? subCategory.name_en : subCategory.name_uz)}
+                </Link>
+              </div>
+            )}
         </div>
       </div>
     </div>

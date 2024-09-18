@@ -18,9 +18,10 @@ export const CategoriesPage = () => {
                     <Link key={i + 'category-page'} to={`/products-page/${category.id}`}>
                         <div className={styles.content_card}>
                             <div className={styles.content_card__title}>
-                                {i18n.language === "ru"
+                                {i18n.language == "ru"
                                     ? category.name_ru.split('/rn/')[0]
-                                    : category.name_uz.split('/rn/')[0]}
+                                    : (i18n.language == "en" ? category.name_en.split('/rn/')[0] : category.name_uz.split('/rn/')[0])
+                                }
                             </div>
                             <img src={category.image} alt="" />
                             <div className={styles.content_card__text}>0 {t("categories_count")}</div>

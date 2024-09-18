@@ -11,3 +11,10 @@ export const categories = async () => {
 
     return data;
 }
+
+export const subcategories = async () => {
+    const request = await fetch("https://clean.maxone.uz/api/sub_categories/");
+    const data = await request.json();
+
+    return data;
+}

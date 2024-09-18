@@ -28,7 +28,7 @@ export const Products = () => {
       <Link to={`/product/${product.id}`} className={styles.swiper_card}>
         <div className={styles.swiper_card__top}>
           <img className={styles.swiper_card__image} src={product.image1} alt="" />
-          {product.favorite
+          {saved.includes(product.id)
             ?
             <svg onClick={(e) => toggleFavorite(e, product.id)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="heart">
               <g>
@@ -42,7 +42,9 @@ export const Products = () => {
           }
         </div>
         <div className={styles.swiper_card__bottom}>
-          <div className={styles.swiper_card__text}>{i18n.language == "ru" ? product.text_ru : product.text_uz}</div>
+          <div className={styles.swiper_card__text}>
+            {i18n.language == "ru" ? product.name_ru : (i18n.language == "en" ? product.name_en : product.name_uz)}
+          </div>
           <div className={styles.swiper_card__title}>{product.price} {t("products_cost")}</div>
           <button onClick={toggleModal}>{t("products_buy")}</button>
         </div>
@@ -50,14 +52,23 @@ export const Products = () => {
     )
   }
 
+  let saved = JSON.parse(localStorage.getItem("saved"));
+  saved = saved ? saved : [];
+
   const toggleFavorite = (e, id) => {
     e.preventDefault();
 
-    const stored = JSON.parse(localStorage.getItem("products"));
-    const filtered = stored.map((store) => store.id == id ? { ...store, favorite: !store.favorite } : store);
+    const newProducts = productsData.map(save => ({ ...save, liked: !save.liked }));
+    setProductsData(newProducts);
+    
+    let newSaved = [...saved];
 
-    setProductsData(filtered);
-    localStorage.setItem("products", JSON.stringify(filtered));
+    if(newSaved.includes(id)) {
+      newSaved = newSaved.filter(save => save !== id)
+    } else {
+      newSaved.push(id)
+    }
+    localStorage.setItem("saved", JSON.stringify(newSaved));
   }
 
   return (

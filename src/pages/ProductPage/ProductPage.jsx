@@ -19,13 +19,15 @@ export const ProductPage = () => {
         return <div></div>
     } 
 
-    const description = i18n.language == "ru" ? productContent.description_ru : productContent.description_uz;
+    const description = i18n.language == "ru" ? productContent.description_ru : (i18n.language == "en" ? productContent.description_en : productContent.description_uz);
 
     return (
         <>
             <div className={styles.product}>
                 <div className={styles.product_nav}>
-                    <div className={styles.product_nav__title}>{i18n.language == "ru" ? productContent.name_ru : productContent.name_uz}</div>
+                    <div className={styles.product_nav__title}>
+                        {i18n.language == "ru" ? productContent.name_ru : (i18n.language == "en" ? productContent.name_en : productContent.name_uz)}
+                    </div>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.picture}>

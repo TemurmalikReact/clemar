@@ -4,9 +4,12 @@ import styles from "./footer.module.scss"
 import { categories } from '../../utils/data'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useProduct } from '../../contexts/ProductContext'
 
 export const Footer = () => {
   const { t, i18n } = useTranslation();
+  const { categoriesData } = useProduct();
+
   return (
     <>
       <div className={styles.footer}>
@@ -52,8 +55,13 @@ export const Footer = () => {
         </div>
         <div className={styles.footer_column}>
           <div className={styles.footer_column__subtitle}>{t("categories_title")}</div>
-          {categories.filter((o, i) => i != 1).map((category, i) => (
-            <Link className={styles.footer_column__link} key={category.id + "footer"} to={`/products-page/${category.id}`} dangerouslySetInnerHTML={{ __html: t(category.title) }} />
+          {categoriesData.filter((o, i) => i != 1).map((category, i) => (
+            <Link className={styles.footer_column__link} key={category.id + "footer"} to={`/products-page/${category.id}`}>
+              {i18n.language == "ru"
+                ? category.name_ru.split('/rn/')[0]
+                : (i18n.language == "en" ? category.name_en.split('/rn/')[0] : category.name_uz.split('/rn/')[0])
+              }
+            </Link>
           ))}
         </div>
         <div className={styles.footer_column}>
@@ -64,7 +72,7 @@ export const Footer = () => {
           <a href='#' className={styles.footer_column__link}>{t("footer_qa")}</a>
         </div>
         <div className={styles.footer_column}>
-          <a href='#' className={styles.footer_column__toplink} dangerouslySetInnerHTML={{ __html: t("footer_link_1")}} />
+          <a href='#' className={styles.footer_column__toplink} dangerouslySetInnerHTML={{ __html: t("footer_link_1") }} />
           <a href='#' className={styles.footer_column__toplink}>
             <span dangerouslySetInnerHTML={{ __html: t("footer_link_2") }} />
             <svg width="38" height="48" viewBox="0 0 38 48" fill="none" xmlns="http://www.w3.org/2000/svg">
