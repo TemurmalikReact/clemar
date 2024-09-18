@@ -80,16 +80,22 @@ export const ProductsPage = () => {
                         <div className={styles.content_card}>
                             <div className={styles.content_card__top}>
                                 <img className={styles.content_card__image} src={product.image1} alt="" />
-                                <svg onClick={(e) => toggleFavorite(e, product.id)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="heart">
-                                    <g>
-                                        <path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z"></path>
-                                    </g>
-                                </svg>
+                                {saved.includes(product.id)
+                                    ?
+                                    <svg onClick={(e) => toggleFavorite(e, product.id)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="heart">
+                                        <g>
+                                            <path d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21z"></path>
+                                        </g>
+                                    </svg>
+                                    :
+                                    <svg onClick={(e) => toggleFavorite(e, product.id)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="heart">
+                                        <path d="M20.16,5A6.29,6.29,0,0,0,12,4.36a6.27,6.27,0,0,0-8.16,9.48l6.21,6.22a2.78,2.78,0,0,0,3.9,0l6.21-6.22A6.27,6.27,0,0,0,20.16,5Zm-1.41,7.46-6.21,6.21a.76.76,0,0,1-1.08,0L5.25,12.43a4.29,4.29,0,0,1,0-6,4.27,4.27,0,0,1,6,0,1,1,0,0,0,1.42,0,4.27,4.27,0,0,1,6,0A4.29,4.29,0,0,1,18.75,12.43Z"></path>
+                                    </svg>
+                                }
                             </div>
                             <div className={styles.content_card__bottom}>
                                 <div className={styles.content_card__text}>
                                     {i18n.language == "ru" ? product.name_ru : (i18n.language == "en" ? product.name_en : product.name_uz)}
-
                                 </div>
                                 <div className={styles.content_card__title}>{product.price} {t("products_cost")}</div>
                                 <button onClick={toggleModal}>{t("products_buy")}</button>
